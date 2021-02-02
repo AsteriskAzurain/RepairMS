@@ -12,11 +12,11 @@ namespace DataAccess.SQLServerDAL
 {
     public class projectTableDAO : projectTableDAL
     {
-        public void DeleteEntity(int Id)
+        public bool DeleteEntity(int Id)
         {
             string strSql = "update projectTable set deleteStatus=0 where projectID= @projectID ";
             SqlParameter parameter = new SqlParameter("@projectID", Id);
-            SQLHelper.ExecuteonQuery(strSql, parameter);
+            return SQLHelper.ExecuteonQuery(strSql, parameter) == 1;
         }
 
         public projectTable GetEntityById(int Id)

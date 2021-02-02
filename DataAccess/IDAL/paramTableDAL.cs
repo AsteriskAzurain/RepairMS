@@ -16,6 +16,6 @@ namespace DataAccess.IDAL
 
         int SaveEntity(paramTable entity);
 
-        void DeleteEntity(int Id);
+        bool DeleteEntity(int Id);
     }
 }

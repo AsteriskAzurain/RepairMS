@@ -13,11 +13,23 @@ namespace DataAccess.SQLServerDAL
 {
     public class employeeTableDAO : employeeTableDAL
     {
-        public void DeleteEntity(int Id)
+        public employeeTable checkLoginInfo(employeeTable loginUser)
+        {
+            string strSQL = " select * from employeeTable where deleteStatus=1 and employeeName=@employeeName and password=@password ";
+            SqlParameter[] paramArr = new SqlParameter[] {
+                new SqlParameter("@employeeName",loginUser.employeeName),
+                new SqlParameter("@password",loginUser.password)
+            };
+            System.Data.SqlClient.SqlDataReader dr = SQLHelper.ExecuteReader(strSQL, paramArr);
+            IList<employeeTable> list = SQLHelper.ReaderToList<employeeTable>(dr);
+            return list.Count > 0 ? list[0] : loginUser;
+        }
+
+        public bool DeleteEntity(int Id)
         {
             string strSql = "update employeeTable set deleteStatus=0 where employeeID= @employeeID ";
             SqlParameter parameter = new SqlParameter("@employeeID", Id);
-            SQLHelper.ExecuteonQuery(strSql, parameter);
+            return SQLHelper.ExecuteonQuery(strSql, parameter) == 1;
         }
 
         public employeeTable GetEntityById(int Id)

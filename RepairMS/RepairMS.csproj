@@ -137,6 +137,7 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="ManageSystem\Login.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageSingleMenu.Master" />
   </ItemGroup>
@@ -192,6 +193,13 @@
     <Compile Include="ListView.aspx.designer.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageSystem\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,9 +246,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ManageSystem\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{d89deaa0-ece2-4244-83b3-311625ac58eb}</Project>

@@ -24,3 +24,7 @@ C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.pdb
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.dll.licenses
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\DataAccess.dll
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EntityFramework.dll
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\DataAccess.pdb
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EntityFramework.xml

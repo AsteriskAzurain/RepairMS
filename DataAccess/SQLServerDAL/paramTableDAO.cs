@@ -12,11 +12,11 @@ namespace DataAccess.SQLServerDAL
 {
     public class paramTableDAO : paramTableDAL
     {
-        public void DeleteEntity(int Id)
+        public bool DeleteEntity(int Id)
         {
             string strSql = "update paramTable set deleteStatus=0 where paramID= @paramID ";
             SqlParameter parameter = new SqlParameter("@paramID", Id);
-            SQLHelper.ExecuteonQuery(strSql, parameter);
+            return SQLHelper.ExecuteonQuery(strSql, parameter) == 1;
         }
 
         public paramTable GetEntityById(int Id)

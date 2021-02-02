@@ -16,6 +16,8 @@ namespace DataAccess.IDAL
 
         int SaveEntity(repairmanTable entity);
 
-        void DeleteEntity(int Id);
+        bool DeleteEntity(int Id);
+
+        repairmanTable checkLoginInfo(repairmanTable loginUser);
     }
 }

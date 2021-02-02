@@ -16,6 +16,8 @@ namespace DataAccess.IDAL
 
         int SaveEntity(employeeTable entity);
 
-        void DeleteEntity(int Id);
+        bool DeleteEntity(int Id);
+
+        employeeTable checkLoginInfo(employeeTable loginUser);
     }
 }

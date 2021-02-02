@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\employeeBLL.cs" />
+    <Compile Include="BLL\paramBLL.cs" />
+    <Compile Include="BLL\projectBLL.cs" />
+    <Compile Include="BLL\projectDetailBLL.cs" />
+    <Compile Include="BLL\repairmanBLL.cs" />
     <Compile Include="Entity\employeeTable.cs" />
     <Compile Include="IDAL\employeeTableDAL.cs" />
     <Compile Include="IDAL\paramTableDAL.cs" />
@@ -76,9 +81,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

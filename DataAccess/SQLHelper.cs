@@ -11,7 +11,7 @@ namespace DataAccess
 {
     public static class SQLHelper
     {
-        private static readonly string connStr = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["CONN_DB"].ConnectionString;
+        private static readonly string connStr = System.Web.Configuration.WebConfigurationManager.AppSettings["CONN_DB"];
 
         /// <summary>执行添删改查的方法</summary>
         /// <returns>影响条数</returns>
@@ -96,7 +96,7 @@ namespace DataAccess
         /// <param name="objReader">DataReader对象</param>
         public static IList<T> ReaderToList<T>(this IDataReader objReader)
         {
-            using (objReader)
+            if (!objReader.IsClosed)
             {
                 List<T> list = new List<T>();
                 Type modelType = typeof(T); //获取传入的数据类型
@@ -117,6 +117,7 @@ namespace DataAccess
                 }
                 return list;
             }
+            else return null;
         }
 
         /// <summary>
