@@ -54,11 +54,11 @@ namespace DataAccess
                 .IsUnicode(false);
 
             modelBuilder.Entity<projectTable>()
-                .Property(e => e.contractName)
+                .Property(e => e.contactName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<projectTable>()
-                .Property(e => e.contractPhone)
+                .Property(e => e.contactPhone)
                 .IsUnicode(false);
 
             modelBuilder.Entity<projectTable>()

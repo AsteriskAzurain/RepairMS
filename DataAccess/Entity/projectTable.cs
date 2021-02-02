@@ -21,10 +21,10 @@ namespace DataAccess.Entity
         public int? projectSite { get; set; }
 
         [StringLength(50)]
-        public string contractName { get; set; }
+        public string contactName { get; set; }
 
         [StringLength(50)]
-        public string contractPhone { get; set; }
+        public string contactPhone { get; set; }
 
         [Required]
         [StringLength(255)]

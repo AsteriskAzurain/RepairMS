@@ -67,10 +67,10 @@ namespace DataAccess.SQLServerDAL
             paramList.Add(projectType_parameter);
             var projectSite_parameter = new SqlParameter("@projectSite", entity.projectSite);
             paramList.Add(projectSite_parameter);
-            SqlParameter contractName_parameter = new SqlParameter("@contractName", entity.contractName);
-            paramList.Add(contractName_parameter);
-            SqlParameter contractPhone_parameter = new SqlParameter("@contractPhone", entity.contractPhone);
-            paramList.Add(contractPhone_parameter);
+            SqlParameter contactName_parameter = new SqlParameter("@contactName", entity.contactName);
+            paramList.Add(contactName_parameter);
+            SqlParameter contactPhone_parameter = new SqlParameter("@contactPhone", entity.contactPhone);
+            paramList.Add(contactPhone_parameter);
             SqlParameter projectDetail_parameter = new SqlParameter("@projectDetail", entity.projectDetail);
             paramList.Add(projectDetail_parameter);
             SqlParameter siteDetail_parameter = new SqlParameter("@siteDetail", entity.siteDetail);
@@ -83,13 +83,13 @@ namespace DataAccess.SQLServerDAL
             {
                 identityParameter.Direction = ParameterDirection.Output;
                 paramList.Add(identityParameter);
-                sql = "insert into projectTable(projectStatus,priority,projectType,projectSite,contractName,contractPhone,projectDetail,siteDetail,hasDetail,createDate,deleteStatus) ";
-                sql += "values(@projectStatus,@priority,@projectType,@projectSite,@contractName,@contractPhone,@projectDetail,@siteDetail,0,GETDATE(),1) Select @IdentityId = @@identity  ";
+                sql = "insert into projectTable(projectStatus,priority,projectType,projectSite,contactName,contactPhone,projectDetail,siteDetail,hasDetail,createDate,deleteStatus) ";
+                sql += "values(@projectStatus,@priority,@projectType,@projectSite,@contactName,@contactPhone,@projectDetail,@siteDetail,0,GETDATE(),1) Select @IdentityId = @@identity  ";
             }
             else
             {
                 paramList.Add(projectID_parameter);
-                sql = "update projectTable set projectStatus = @projectStatus,priority = @priority,projectType = @projectType,projectSite = @projectSite,contractName = @contractName,contractPhone = @contractPhone,projectDetail = @projectDetail,siteDetail = @siteDetail,hasDetail = @hasDetail,updateDate = GETDATE() where projectID =@projectID ";
+                sql = "update projectTable set projectStatus = @projectStatus,priority = @priority,projectType = @projectType,projectSite = @projectSite,contactName = @contactName,contactPhone = @contactPhone,projectDetail = @projectDetail,siteDetail = @siteDetail,hasDetail = @hasDetail,updateDate = GETDATE() where projectID =@projectID ";
             }
             int count = SQLHelper.ExecuteonQuery(sql, paramList.ToArray());
 

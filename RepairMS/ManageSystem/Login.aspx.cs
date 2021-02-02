@@ -25,8 +25,8 @@ namespace RepairMS.ManageSystem
         {
             string userName = tbName.Text.Trim();
             string password = tbPswd.Text.Trim();
-            if (userName == "") { tbName.Focus(); return; }
-            if (password == "") { tbPswd.Focus(); return; }
+            if (userName == "") { RadAjaxManager1.Alert("请填写用户名。"); tbName.Focus(); return; }
+            if (password == "") { RadAjaxManager1.Alert("请填写密码。"); tbPswd.Focus(); return; }
             bool isLoginSuccrss = false;
             object cuser;
             if (rdoRole.SelectedValue == "0")

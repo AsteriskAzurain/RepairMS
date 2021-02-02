@@ -28,14 +28,30 @@
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+
+            <AjaxSettings>
+                <telerik:AjaxSetting AjaxControlID="btnSubmit">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="tbContactName" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbContactPhone" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbPriority" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbProjectType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbProjectSite" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbSiteDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbProjectDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+            </AjaxSettings>
+        </telerik:RadAjaxManager>
         <div id="repairForm">
             <h2 class="span-col-2">新增报修单</h2>
-            <telerik:RadLabel ID="RadLabel2" runat="server" Text="姓名："></telerik:RadLabel>
-            <telerik:RadTextBox ID="RadTextBox2" runat="server"></telerik:RadTextBox>
-            <telerik:RadLabel ID="RadLabel1" runat="server" Text="联系方式："></telerik:RadLabel>
-            <telerik:RadTextBox ID="RadTextBox1" runat="server" InputType="Tel"></telerik:RadTextBox>
-            <telerik:RadLabel ID="RadLabel3" runat="server" Text="优先级："></telerik:RadLabel>
-            <telerik:RadComboBox ID="RadComboBox1" runat="server">
+            <telerik:RadLabel ID="lblContactName" runat="server" Text="姓名："></telerik:RadLabel>
+            <telerik:RadTextBox ID="tbContactName" runat="server"></telerik:RadTextBox>
+            <telerik:RadLabel ID="lblContactPhone" runat="server" Text="联系方式："></telerik:RadLabel>
+            <telerik:RadTextBox ID="tbContactPhone" runat="server" InputType="Tel"></telerik:RadTextBox>
+            <telerik:RadLabel ID="lblPriority" runat="server" Text="优先级："></telerik:RadLabel>
+            <telerik:RadComboBox ID="cmbPriority" runat="server">
                 <Items>
                     <telerik:RadComboBoxItem Text="请选择" Value="0" />
                     <telerik:RadComboBoxItem Text="低" Value="1" />
@@ -43,26 +59,27 @@
                     <telerik:RadComboBoxItem Text="高" Value="3" />
                 </Items>
             </telerik:RadComboBox>
-            <telerik:RadLabel ID="RadLabel4" runat="server" Text="问题类型："></telerik:RadLabel>
-            <telerik:RadComboBox ID="RadComboBox2" runat="server">
+            <telerik:RadLabel ID="lblProjectType" runat="server" Text="问题类型："></telerik:RadLabel>
+            <telerik:RadComboBox ID="cmbProjectType" runat="server">
                 <Items>
-                    <telerik:RadComboBoxItem Text="电脑问题" Value="电脑问题" />
-                    <telerik:RadComboBoxItem Text="器材问题" Value="器材问题" />
+                    <telerik:RadComboBoxItem Text="电脑问题" Value="1" />
+                    <telerik:RadComboBoxItem Text="器材问题" Value="2" />
+                    <telerik:RadComboBoxItem Text="其他问题" Value="3" />
                 </Items>
             </telerik:RadComboBox>
-            <telerik:RadLabel ID="RadLabel5" runat="server" Text="报修地点："></telerik:RadLabel>
-            <telerik:RadComboBox ID="RadComboBox3" runat="server">
+            <telerik:RadLabel ID="lblProjectSite" runat="server" Text="报修地点："></telerik:RadLabel>
+            <telerik:RadComboBox ID="cmbProjectSite" runat="server">
                 <Items>
-                    <telerik:RadComboBoxItem Text="教室" Value="0" />
-                    <telerik:RadComboBoxItem Text="宿舍" Value="1" />
-                    <telerik:RadComboBoxItem Text="其他" Value="2" />
+                    <telerik:RadComboBoxItem Text="教室" Value="1" />
+                    <telerik:RadComboBoxItem Text="宿舍" Value="2" />
+                    <telerik:RadComboBoxItem Text="其他" Value="3" />
                 </Items>
             </telerik:RadComboBox>
-            <telerik:RadLabel ID="RadLabel6" runat="server" Text="具体位置："></telerik:RadLabel>
-            <telerik:RadTextBox ID="RadTextBox3" runat="server" Width="300px"></telerik:RadTextBox>
-            <telerik:RadLabel ID="RadLabel7" runat="server" Text="详细描述："></telerik:RadLabel>
-            <telerik:RadTextBox ID="RadTextBox4" runat="server" Height="100px" Width="300px" TextMode="MultiLine"></telerik:RadTextBox>
-            <telerik:RadButton ID="btnSubmit" runat="server" Text="提交" RenderMode="Lightweight" Primary="true" CssClass="span-col-2"></telerik:RadButton>
+            <telerik:RadLabel ID="lblSiteDetail" runat="server" Text="具体位置："></telerik:RadLabel>
+            <telerik:RadTextBox ID="tbSiteDetail" runat="server" Width="300px"></telerik:RadTextBox>
+            <telerik:RadLabel ID="lblProjectDetail" runat="server" Text="详细描述："></telerik:RadLabel>
+            <telerik:RadTextBox ID="tbProjectDetail" runat="server" Height="100px" Width="300px" TextMode="MultiLine"></telerik:RadTextBox>
+            <telerik:RadButton ID="btnSubmit" runat="server" Text="提交" RenderMode="Lightweight" Primary="true" CssClass="span-col-2" OnClick="btnSubmit_Click"></telerik:RadButton>
         </div>
     </form>
 </body>
