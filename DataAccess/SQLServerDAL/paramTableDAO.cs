@@ -27,13 +27,9 @@ namespace DataAccess.SQLServerDAL
             dr = SQLHelper.ExecuteReader(strSQL, param);
             try
             {
-                if (dr.Read())
-                {
-                    paramTable entity = new paramTable();
-                    entity = SQLHelper.ReaderToList<paramTable>(dr)[0];
-                    return entity;
-                }
-                else return null;
+                paramTable entity = new paramTable();
+                entity = SQLHelper.ReaderToList<paramTable>(dr)[0];
+                return entity;
             }
             catch (Exception ex)
             {
@@ -88,6 +84,12 @@ namespace DataAccess.SQLServerDAL
             if (entity.paramID == -1 && identityParameter != null) entity.paramID = Convert.ToInt32(identityParameter.Value);
 
             return count;
+        }
+
+        public DataTable GetDataTabelByTypeId(int typeID)
+        {
+            string sql = "select * from [paramTable] where deleteStatus=1 and paramType= " + typeID.ToString();
+            return SQLHelper.ExecuteDataTable(sql, null);
         }
     }
 }

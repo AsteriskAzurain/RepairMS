@@ -27,13 +27,9 @@ namespace DataAccess.SQLServerDAL
             dr = SQLHelper.ExecuteReader(strSQL, param);
             try
             {
-                if (dr.Read())
-                {
-                    projectDetailTable entity = new projectDetailTable();
-                    entity = SQLHelper.ReaderToList<projectDetailTable>(dr)[0];
-                    return entity;
-                }
-                else return null;
+                projectDetailTable entity = new projectDetailTable();
+                entity = SQLHelper.ReaderToList<projectDetailTable>(dr)[0];
+                return entity;
             }
             catch (Exception ex)
             {
@@ -114,7 +110,7 @@ namespace DataAccess.SQLServerDAL
         public int SetEntityStatus(int id, int status)
         {
             string strSql = string.Format(" update projectDetailTable set faultStatus={1},updateDate=GETDATE() where detailID={0} ", id, status);
-            return SQLHelper.ExecuteonQuery(strSql, null) ;
+            return SQLHelper.ExecuteonQuery(strSql, null);
         }
     }
 }

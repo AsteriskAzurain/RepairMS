@@ -14,10 +14,10 @@ namespace DataAccess.BLL
     {
         public projectTableDAL dal = new projectTableDAO();
 
-        public bool addNewRepairProject(projectTable entity)
+        public int addNewRepairProject(projectTable entity)
         {
             entity.projectID = entity.projectID > 0 ? entity.projectID : -1;
-            return dal.SaveEntity(entity) > 0;
+            return dal.SaveEntity(entity);
         }
 
         public bool updateRepairStatus(int id, int status)

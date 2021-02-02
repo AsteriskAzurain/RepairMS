@@ -96,28 +96,24 @@ namespace DataAccess
         /// <param name="objReader">DataReader对象</param>
         public static IList<T> ReaderToList<T>(this IDataReader objReader)
         {
-            if (!objReader.IsClosed)
+            List<T> list = new List<T>();
+            Type modelType = typeof(T); //获取传入的数据类型
+            while (objReader.Read())    //遍历DataReader对象
             {
-                List<T> list = new List<T>();
-                Type modelType = typeof(T); //获取传入的数据类型
-                while (objReader.Read())    //遍历DataReader对象
+                //使用与指定参数匹配最高的构造函数，来创建指定类型的实例
+                T model = Activator.CreateInstance<T>();
+                for (int i = 0; i < objReader.FieldCount; i++)
                 {
-                    //使用与指定参数匹配最高的构造函数，来创建指定类型的实例
-                    T model = Activator.CreateInstance<T>();
-                    for (int i = 0; i < objReader.FieldCount; i++)
+                    if (!IsNullOrDBNull(objReader[i]))  //判断字段值是否为空或不存在的值
                     {
-                        if (!IsNullOrDBNull(objReader[i]))  //判断字段值是否为空或不存在的值
-                        {
-                            //匹配字段名
-                            PropertyInfo pi = modelType.GetProperty(objReader.GetName(i), BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
-                            if (pi != null) pi.SetValue(model, CheckType(objReader[i], pi.PropertyType), null); //绑定实体对象中同名的字段  
-                        }
+                        //匹配字段名
+                        PropertyInfo pi = modelType.GetProperty(objReader.GetName(i), BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
+                        if (pi != null) pi.SetValue(model, CheckType(objReader[i], pi.PropertyType), null); //绑定实体对象中同名的字段  
                     }
-                    list.Add(model);
                 }
-                return list;
+                list.Add(model);
             }
-            else return null;
+            return list;
         }
 
         /// <summary>

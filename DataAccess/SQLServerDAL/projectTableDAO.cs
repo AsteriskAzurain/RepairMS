@@ -27,13 +27,9 @@ namespace DataAccess.SQLServerDAL
             dr = SQLHelper.ExecuteReader(strSQL, param);
             try
             {
-                if (dr.Read())
-                {
-                    projectTable entity = new projectTable();
-                    entity = SQLHelper.ReaderToList<projectTable>(dr)[0];
-                    return entity;
-                }
-                else return null;
+                projectTable entity = new projectTable();
+                entity = SQLHelper.ReaderToList<projectTable>(dr)[0];
+                return entity;
             }
             catch (Exception ex)
             {
@@ -93,9 +89,8 @@ namespace DataAccess.SQLServerDAL
             }
             int count = SQLHelper.ExecuteonQuery(sql, paramList.ToArray());
 
-            if (entity.projectID == -1 && identityParameter != null) entity.projectID = Convert.ToInt32(identityParameter.Value);
+            return entity.projectID > 0 ? count : (identityParameter == null ? -1 : Convert.ToInt32(identityParameter.Value));
 
-            return count;
         }
 
         public int SetEntityStatus(int id, int status)

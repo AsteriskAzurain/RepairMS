@@ -17,5 +17,7 @@ namespace DataAccess.IDAL
         int SaveEntity(paramTable entity);
 
         bool DeleteEntity(int Id);
+
+        DataTable GetDataTabelByTypeId(int typeID);
     }
 }

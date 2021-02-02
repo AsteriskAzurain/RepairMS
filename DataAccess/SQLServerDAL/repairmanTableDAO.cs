@@ -39,13 +39,9 @@ namespace DataAccess.SQLServerDAL
             dr = SQLHelper.ExecuteReader(strSQL, param);
             try
             {
-                if (dr.Read())
-                {
-                    repairmanTable entity = new repairmanTable();
-                    entity = SQLHelper.ReaderToList<repairmanTable>(dr)[0];
-                    return entity;
-                }
-                else return null;
+                repairmanTable entity = new repairmanTable();
+                entity = SQLHelper.ReaderToList<repairmanTable>(dr)[0];
+                return entity;
             }
             catch (Exception ex)
             {

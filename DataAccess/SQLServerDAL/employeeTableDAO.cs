@@ -40,13 +40,9 @@ namespace DataAccess.SQLServerDAL
             dr = SQLHelper.ExecuteReader(strSQL, param);
             try
             {
-                if (dr.Read())
-                {
-                    employeeTable entity = new employeeTable();
-                    entity = SQLHelper.ReaderToList<employeeTable>(dr)[0];
-                    return entity;
-                }
-                else return null;
+                employeeTable entity = new employeeTable();
+                entity = SQLHelper.ReaderToList<employeeTable>(dr)[0];
+                return entity;
             }
             catch (Exception ex)
             {
