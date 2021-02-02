@@ -97,5 +97,18 @@ namespace DataAccess.SQLServerDAL
 
             return count;
         }
+
+        public int SetEntityStatus(int id, int status)
+        {
+            string strSql = " update projectTable set projectStatus={1}, updateDate=GETDATE() where projectID={0} ";
+            strSql = string.Format(strSql, id, status);
+            return SQLHelper.ExecuteonQuery(strSql);
+        }
+
+        public DataTable GetDataTableByStatus(int status)
+        {
+            string strSql = string.Format("select * from projectTable where deleteStatus=1 and projectStatus={0} order by priority desc,updateDate desc,createDate desc", status);
+            return SQLHelper.ExecuteDataTable(strSql, null);
+        }
     }
 }

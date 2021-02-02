@@ -41,7 +41,7 @@
                         <h4>H4 text font size 18 px.</h4>
                         <p><strong>Main content text font size 16px</strong>, aliquam turpis sed nisl mattis sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut vitae sapien metus. In hac habitasse platea dictumst. Aenean velit mauris, lobortis eu lacinia sed</p>
                         <p>Nullam facilisis neque ut aliquet imperdiet. Mauris ut odio augue. Curabitur in mi ac odio vestibulum lobortis. </p>
-                        <telerik:RadButton runat="server" ID="RadButton1" Text="Button" ButtonType="SkinnedButton"></telerik:RadButton>
+                        <telerik:RadButton runat="server" ID="RadButton1" Text="Button" ButtonType="SkinnedButton" OnClick="RadButton1_Click"></telerik:RadButton>
                     </telerik:LayoutColumn>
 
                     <telerik:LayoutColumn Span="4" SpanMd="12" SpanSm="12" HiddenXs="true">

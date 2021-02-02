@@ -70,8 +70,10 @@ namespace DataAccess.SQLServerDAL
             var faultStatus_parameter = new SqlParameter("@faultStatus", entity.faultStatus);
             paramList.Add(faultStatus_parameter);
             SqlParameter faultDetail_parameter = new SqlParameter("@faultDetail", entity.faultDetail);
+            if (entity.faultDetail == null || entity.faultDetail == "") faultDetail_parameter.Value = DBNull.Value;
             paramList.Add(faultDetail_parameter);
             SqlParameter add_requirement_parameter = new SqlParameter("@add_requirement", entity.add_requirement);
+            if (entity.add_requirement == null || entity.add_requirement == "") add_requirement_parameter.Value = DBNull.Value;
             paramList.Add(add_requirement_parameter);
             string sql = "";
             SqlParameter identityParameter = new SqlParameter("@IdentityId", SqlDbType.Int);
@@ -89,9 +91,30 @@ namespace DataAccess.SQLServerDAL
             }
             int count = SQLHelper.ExecuteonQuery(sql, paramList.ToArray());
 
-            if (entity.detailID == -1 && identityParameter != null) entity.detailID = Convert.ToInt32(identityParameter.Value);
+            //if (entity.detailID == -1)
+            //{
+            //    if (identityParameter != null)
+            //    {
+            //        entity.detailID = Convert.ToInt32(identityParameter.Value);
+            //        return entity.detailID;
+            //    }
+            //    else return -1;
+            //}
+            //else return count;
 
-            return count;
+            return entity.detailID > 0 ? count : (identityParameter == null ? -1 : Convert.ToInt32(identityParameter.Value));
+        }
+
+        public DataTable GetAllDetailByProjID(int projID)
+        {
+            string sql = string.Format("select * from projectDetailTable where deleteStatus=1 and projectID={0} order by createDate desc", projID);
+            return SQLHelper.ExecuteDataTable(sql, null);
+        }
+
+        public int SetEntityStatus(int id, int status)
+        {
+            string strSql = string.Format(" update projectDetailTable set faultStatus={1},updateDate=GETDATE() where detailID={0} ", id, status);
+            return SQLHelper.ExecuteonQuery(strSql, null) ;
         }
     }
 }

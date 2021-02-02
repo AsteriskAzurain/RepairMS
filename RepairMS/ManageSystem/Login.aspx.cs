@@ -29,7 +29,7 @@ namespace RepairMS.ManageSystem
             if (password == "") { RadAjaxManager1.Alert("请填写密码。"); tbPswd.Focus(); return; }
             bool isLoginSuccrss = false;
             object cuser;
-            if (rdoRole.SelectedValue == "0")
+            if (rdoRole.SelectedValue == "1")
             {
                 cuser = eBLL.UserLogin(userName, password);
                 isLoginSuccrss = (cuser as employeeTable).employeeID > 0;

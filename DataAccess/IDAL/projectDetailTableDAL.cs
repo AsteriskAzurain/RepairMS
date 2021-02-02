@@ -17,5 +17,9 @@ namespace DataAccess.IDAL
         int SaveEntity(projectDetailTable entity);
 
         bool DeleteEntity(int Id);
+
+        DataTable GetAllDetailByProjID(int projID);
+
+        int SetEntityStatus(int id, int status);
     }
 }
