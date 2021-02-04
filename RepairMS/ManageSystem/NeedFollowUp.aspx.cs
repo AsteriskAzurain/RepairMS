@@ -89,8 +89,6 @@ namespace RepairMS.ManageSystem
         {
             if (e.CommandName == RadGrid.InitInsertCommandName) //"Add new" button clicked
             {
-                //if (GridProject.SelectedItems.Count == 0) { RadAjaxManager1.Alert("请先选择报修项目。"); e.Canceled = true; return; }
-
                 e.Canceled = true;
                 if (GridProject.SelectedItems.Count == 0) { RadAjaxManager1.Alert("请先选择报修项目。"); return; }
                 e.Item.OwnerTableView.InsertItem();
@@ -102,7 +100,7 @@ namespace RepairMS.ManageSystem
             {
                 GridEditableItem editedItem = e.Item as GridEditableItem;
                 RadComboBox cmb = editedItem.FindControl("cmbRMList") as RadComboBox;
-                if (cmb == null || cmb.SelectedIndex == 0) { e.Canceled = true; return; }
+                if (cmb == null || cmb.SelectedIndex == 0) { RadAjaxManager1.Alert("请选择维修人员。"); e.Canceled = true; return; }
                 int rmID = Convert.ToInt32(cmb.SelectedItem.Value);
                 int projID = Convert.ToInt32(ViewState["SelectedProjID"]);
                 int detailID = detailBLL.assignRepairMan(projID, rmID);

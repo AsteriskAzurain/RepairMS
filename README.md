@@ -46,9 +46,10 @@
 ##### 2. 待跟进报修
 
   - [ ] 查询，查看详细信息
-  - [ ] 查看detail信息
-  - [ ] 添加报修人员 => 添加detail（Status=2）
-  - [ ] 上下Grid，下Grid查询Detail，可添加
+  - [x] 查看detail信息
+  - [x] 添加报修人员 => 添加detail（Status=2）
+    * [ ] 添加时，check人名
+  - [x] 上下Grid，下Grid查询Detail，可添加
   - [ ] Row末尾 btn结项，设置项目为已完成
 
 ##### 3. 完成报修查询
@@ -61,8 +62,8 @@
 
 - [x] 查找
 - [x] 添加、删除/恢复
+  - [ ] 重名check
 - [x] Grid (All Info)
-
 - [ ] 修改信息
 
 
