@@ -61,6 +61,13 @@ namespace DataAccess.SQLServerDAL
             return dt;
         }
 
+        public DataTable GetEntityDatatableAll()
+        {
+            string sql = "select * from [repairmanTable] ";
+            DataTable dt = SQLHelper.ExecuteDataTable(sql, null);
+            return dt;
+        }
+
         public int SaveEntity(repairmanTable entity)
         {
             List<SqlParameter> paramList = new List<SqlParameter>();
@@ -90,6 +97,23 @@ namespace DataAccess.SQLServerDAL
             if (entity.repairmanID == -1 && identityParameter != null) entity.repairmanID = Convert.ToInt32(identityParameter.Value);
 
             return count;
+        }
+
+        public bool switchDeleteStatus(int rmId, int newStatus)
+        {
+            string strSql = "update repairmanTable set deleteStatus=@deleteStatus where repairmanID= @repairmanID ";
+            SqlParameter[] paramArr = new SqlParameter[] {
+                new SqlParameter("@repairmanID",rmId),
+                new SqlParameter("@deleteStatus",newStatus)
+            };
+            return SQLHelper.ExecuteonQuery(strSql, paramArr) == 1;
+        }
+
+        public DataTable getRMListByName(string name)
+        {
+            string sql = "select * from [repairmanTable] where repairmanName like '%{0}%' ";
+            sql = string.Format(sql, name);
+            return SQLHelper.ExecuteDataTable(sql, null);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DataAccess.BLL
 {
     public class repairmanBLL
     {
-        public repairmanTableDAL dal=new repairmanTableDAO();
+        public repairmanTableDAL dal = new repairmanTableDAO();
         public repairmanTable UserLogin(string userName, string password)
         {
             if (userName != "" && password != "")
@@ -27,9 +27,9 @@ namespace DataAccess.BLL
             return new repairmanTable();
         }
 
-        public DataTable getAllRepairMen()
+        public DataTable getAllRepairMen(bool isIncludeDeteled = false)
         {
-            return dal.GetEntityDatatable();
+            return isIncludeDeteled ? dal.GetEntityDatatableAll() : dal.GetEntityDatatable();
         }
 
         public bool deleteRepairMan(int rmID)
@@ -42,9 +42,12 @@ namespace DataAccess.BLL
             return dal.GetEntityById(rmID);
         }
 
-        public bool addNewRepairMan(repairmanTable entity)
+        public bool addNewRepairMan(string name)
         {
-            entity.repairmanID = entity.repairmanID > 0 ? entity.repairmanID : -1;
+            repairmanTable entity = new repairmanTable();
+            entity.repairmanID = -1;
+            entity.repairmanName = name;
+            entity.password = "111111";
             return dal.SaveEntity(entity) > 0;
         }
 
@@ -55,6 +58,14 @@ namespace DataAccess.BLL
             //else return false;
         }
 
+        public bool switchDeleteStatus(int rmId, int currentStatus)
+        {
+            return dal.switchDeleteStatus(rmId, currentStatus == 0 ? 1 : 0);
+        }
 
+        public DataTable getRMListByName(string name)
+        {
+            return dal.getRMListByName(name);
+        }
     }
 }

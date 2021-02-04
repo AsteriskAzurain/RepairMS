@@ -138,6 +138,9 @@
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
     <Content Include="ManageSystem\Login.aspx" />
+    <Content Include="ManageSystem\MyRepairProject.aspx" />
+    <Content Include="ManageSystem\RepairMan.aspx" />
+    <Content Include="ManageSystem\RepairProject.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageSingleMenu.Master" />
   </ItemGroup>
@@ -199,6 +202,27 @@
     </Compile>
     <Compile Include="ManageSystem\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\MyRepairProject.aspx.cs">
+      <DependentUpon>MyRepairProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\MyRepairProject.aspx.designer.cs">
+      <DependentUpon>MyRepairProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\RepairMan.aspx.cs">
+      <DependentUpon>RepairMan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\RepairMan.aspx.designer.cs">
+      <DependentUpon>RepairMan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\RepairProject.aspx.cs">
+      <DependentUpon>RepairProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\RepairProject.aspx.designer.cs">
+      <DependentUpon>RepairProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -273,7 +297,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

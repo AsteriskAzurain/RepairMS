@@ -19,5 +19,11 @@ namespace DataAccess.IDAL
         bool DeleteEntity(int Id);
 
         repairmanTable checkLoginInfo(repairmanTable loginUser);
+
+        DataTable GetEntityDatatableAll();
+
+        bool switchDeleteStatus(int rmId, int newStatus);
+
+        DataTable getRMListByName(string name);
     }
 }
