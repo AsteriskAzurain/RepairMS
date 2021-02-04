@@ -73,5 +73,10 @@ namespace DataAccess.BLL
             return dal.SetEntityStatus(id, status) > 0;
         }
 
+        public bool deleteDetail(int id)
+        {
+            return dal.DeleteEntity(id);
+        }
+
     }
 }

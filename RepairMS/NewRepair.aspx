@@ -112,17 +112,17 @@
                 <telerik:RadLabel ID="lblProjectType" runat="server" Text="问题类型："></telerik:RadLabel>
                 <telerik:RadComboBox ID="cmbProjectType" runat="server">
                     <Items>
-                        <telerik:RadComboBoxItem Text="电脑问题" Value="5" />
-                        <telerik:RadComboBoxItem Text="器材问题" Value="6" />
-                        <telerik:RadComboBoxItem Text="其他问题" Value="7" />
+                        <telerik:RadComboBoxItem Text="电脑问题" Value="1" />
+                        <telerik:RadComboBoxItem Text="器材问题" Value="2" />
+                        <telerik:RadComboBoxItem Text="其他问题" Value="3" />
                     </Items>
                 </telerik:RadComboBox>
                 <telerik:RadLabel ID="lblProjectSite" runat="server" Text="报修地点："></telerik:RadLabel>
                 <telerik:RadComboBox ID="cmbProjectSite" runat="server">
                     <Items>
-                        <telerik:RadComboBoxItem Text="教室" Value="8" />
-                        <telerik:RadComboBoxItem Text="宿舍" Value="9" />
-                        <telerik:RadComboBoxItem Text="其他" Value="10" />
+                        <telerik:RadComboBoxItem Text="教室" Value="1" />
+                        <telerik:RadComboBoxItem Text="宿舍" Value="2" />
+                        <telerik:RadComboBoxItem Text="其他" Value="3" />
                     </Items>
                 </telerik:RadComboBox>
                 <telerik:RadLabel ID="lblSiteDetail" runat="server" Text="具体位置："></telerik:RadLabel>

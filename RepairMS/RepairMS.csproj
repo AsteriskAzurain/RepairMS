@@ -139,6 +139,7 @@
     <Content Include="App_Data\RadCaptcha\Z.wav" />
     <Content Include="ManageSystem\Login.aspx" />
     <Content Include="ManageSystem\MyRepairProject.aspx" />
+    <Content Include="ManageSystem\NeedFollowUp.aspx" />
     <Content Include="ManageSystem\RepairMan.aspx" />
     <Content Include="ManageSystem\RepairProject.aspx" />
     <Content Include="MasterPage.Master" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="ManageSystem\MyRepairProject.aspx.designer.cs">
       <DependentUpon>MyRepairProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\NeedFollowUp.aspx.cs">
+      <DependentUpon>NeedFollowUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\NeedFollowUp.aspx.designer.cs">
+      <DependentUpon>NeedFollowUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageSystem\RepairMan.aspx.cs">
       <DependentUpon>RepairMan.aspx</DependentUpon>
