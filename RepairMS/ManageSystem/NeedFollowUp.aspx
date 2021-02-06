@@ -109,7 +109,7 @@
                         <Selecting AllowRowSelect="True" />
                         <Scrolling AllowScroll="True" UseStaticHeaders="True"></Scrolling>
                     </ClientSettings>
-                    <MasterTableView DataKeyNames="detailID" CommandItemDisplay="Top" EditMode="EditForms">
+                    <MasterTableView DataKeyNames="detailID" CommandItemDisplay="Top" EditMode="PopUp">
                         <CommandItemSettings AddNewRecordText="分配新维修员" ShowRefreshButton="False" />
                         <Columns>
                             <telerik:GridBoundColumn DataField="detailID" HeaderText="维修单号" UniqueName="detailID" FilterControlAltText="Filter detailID column">
@@ -152,11 +152,15 @@
                         </Columns>
                         <EditFormSettings EditFormType="Template">
                             <FormTemplate>
-                                <div style="margin: 10px; padding: 10px;">
-                                    <telerik:RadLabel ID="lblNewRM" runat="server" Text="维修人员："></telerik:RadLabel>
-                                    <telerik:RadComboBox ID="cmbRMList" runat="server" Filter="Contains" AppendDataBoundItems="True" Width="240px"></telerik:RadComboBox>
-                                    <telerik:RadButton ID="btnAssignRM" runat="server" Text="确认" CommandName="PerformInsert" Width="80px" Primary="true"></telerik:RadButton>
-                                    <telerik:RadButton ID="btnCancelRM" runat="server" Text="取消" CommandName="Cancel" Width="80px" CausesValidation="False"></telerik:RadButton>
+                                <div style="display: grid; justify-content: center;">
+                                    <div style="margin-top: 20px;">
+                                        <telerik:RadLabel ID="lblNewRM" runat="server" Text="维修人员："></telerik:RadLabel>
+                                        <telerik:RadComboBox ID="cmbRMList" runat="server" Filter="Contains" AppendDataBoundItems="True" Width="240px"></telerik:RadComboBox>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; padding: 10px 70px;">
+                                        <telerik:RadButton ID="btnAssignRM" runat="server" Text="确认" CommandName="PerformInsert" Width="80px" Primary="true"></telerik:RadButton>
+                                        <telerik:RadButton ID="btnCancelRM" runat="server" Text="取消" CommandName="Cancel" Width="80px" CausesValidation="False"></telerik:RadButton>
+                                    </div>
                                 </div>
                             </FormTemplate>
                         </EditFormSettings>
