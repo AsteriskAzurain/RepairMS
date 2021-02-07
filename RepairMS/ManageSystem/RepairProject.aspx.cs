@@ -213,10 +213,13 @@ namespace RepairMS.ManageSystem
 
         protected void cmbStatus_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            ViewState["projectStatus"] = cmbStatus.SelectedValue;
-            pageTitle = cmbStatus.SelectedItem.Text;
-            getProjectData();
-            getDetailData(0);
+            if (cmbStatus.SelectedIndex > 0) // 选择"请选择"时，保留原状态
+            {
+                ViewState["projectStatus"] = cmbStatus.SelectedValue;
+                pageTitle = cmbStatus.SelectedItem.Text;
+                getProjectData();
+                getDetailData(0);
+            }
         }
     }
 }
