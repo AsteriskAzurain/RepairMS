@@ -67,5 +67,10 @@ namespace DataAccess.BLL
         {
             return dal.getRMListByName(name);
         }
+
+        public bool isRMNameExist(string name, bool isAll = false)
+        {
+            return dal.isNameExist(name, isAll);
+        }
     }
 }

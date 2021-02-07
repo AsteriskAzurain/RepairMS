@@ -25,5 +25,7 @@ namespace DataAccess.IDAL
         bool switchDeleteStatus(int rmId, int newStatus);
 
         DataTable getRMListByName(string name);
+
+        bool isNameExist(string name, bool isAll);
     }
 }

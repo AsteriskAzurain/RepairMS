@@ -115,5 +115,12 @@ namespace DataAccess.SQLServerDAL
             sql = string.Format(sql, name);
             return SQLHelper.ExecuteDataTable(sql, null);
         }
+
+        public bool isNameExist(string name, bool isAll)
+        {
+            string sql = string.Format("select count(0) from repairmanTable where repairmanName='{0}' {1} ", name, isAll ? "" : " and deleteStatus=1");
+            return Convert.ToInt32(SQLHelper.ExecuteScalar(sql, null)) > 0;
+
+        }
     }
 }

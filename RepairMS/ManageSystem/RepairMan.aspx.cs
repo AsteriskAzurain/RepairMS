@@ -73,6 +73,7 @@ namespace RepairMS.ManageSystem
         {
             string name = tbName.Text.Trim();
             if (name == "") { RadAjaxManager1.Alert("姓名不能为空。"); tbName.Focus(); return; }
+            if (rmBLL.isRMNameExist(name)) { RadAjaxManager1.Alert("维修人员已存在，请检查后重试。"); tbName.Focus(); return; }
             if (rmBLL.addNewRepairMan(name)) { RadAjaxManager1.Alert("添加成功。"); tbName.Text = ""; }
             getGridData();
         }
