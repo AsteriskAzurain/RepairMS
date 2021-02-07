@@ -191,12 +191,10 @@ namespace RepairMS.ManageSystem
         protected void cmbProjStatus_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
             RadComboBox cmb = sender as RadComboBox;
-
             GridDataItem gridItem = (cmb.NamingContainer as GridDataItem);
             int projId = Convert.ToInt32(gridItem.GetDataKeyValue("projectID").ToString());
             int status = Convert.ToInt32(cmb.SelectedValue);
-            projBLL.updateRepairStatus(projId, status);
-            getProjectData();
+            if (projBLL.updateRepairStatus(projId, status)) getProjectData();
         }
     }
 }
