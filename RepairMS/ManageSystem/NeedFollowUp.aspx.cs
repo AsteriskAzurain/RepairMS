@@ -1,18 +1,16 @@
 ﻿using DataAccess.BLL;
+using DataAccess.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using Telerik.Web.UI;
 
 namespace RepairMS.ManageSystem
 {
     public partial class NeedFollowUp : System.Web.UI.Page
     {
-        public int projectStatus = 2;
         projectBLL projBLL = new projectBLL();
         projectDetailBLL detailBLL = new projectDetailBLL();
         repairmanBLL rmBLL = new repairmanBLL();
@@ -23,6 +21,7 @@ namespace RepairMS.ManageSystem
             // TODO add rowIndex
             if (!IsPostBack)
             {
+                cmb_BindData();
                 getProjectData();
                 getDetailData(0);
             }
@@ -94,7 +93,11 @@ namespace RepairMS.ManageSystem
                 e.Item.OwnerTableView.InsertItem();
                 GridEditableItem insertedItem = e.Item.OwnerTableView.GetInsertItem();
                 RadComboBox cmb = insertedItem.FindControl("cmbRMList") as RadComboBox;
-                if (cmb != null) cmbRMList_GetData(cmb);
+                if (cmb != null)
+                {
+                    DataTable dt = rmBLL.getAllRepairMen();
+                    Global.BindComboBoxList(cmb, dt, "repairmanID", "repairmanName", 0);
+                }
             }
             else if (e.CommandName == RadGrid.PerformInsertCommandName)
             {
@@ -120,41 +123,16 @@ namespace RepairMS.ManageSystem
             }
         }
 
-        private void cmbRMList_GetData(RadComboBox cmbRMList)
+        private void cmb_BindData()
         {
-            DataTable dt = new DataTable();
-            dt = rmBLL.getAllRepairMen();
-            RadComboBoxItem emptyItem = new RadComboBoxItem();
-            emptyItem.Value = "";
-            emptyItem.Text = "Select a RepairMan";
-            cmbRMList.Items.Add(emptyItem);
-            emptyItem.DataBind();
-            foreach (DataRow row in dt.Rows)
-            {
-                RadComboBoxItem item = new RadComboBoxItem();
-                item.Value = row["repairmanID"].ToString();
-                item.Text = row["repairmanName"].ToString();
-                cmbRMList.Items.Add(item);
-                item.DataBind();
-            }
-        }
-
-        public string parseToText(object code, string flag)
-        {
-            Dictionary<string, int> paramTypeDict = new Dictionary<string, int>() {
-                {"projectStatus",1 }, {"projectType",2 }, {"projectSite",3 }, {"faultType", 4 }, {"faultStatus", 1}
+            Global.ComboBox_BindLevelData(cmbPriority);
+            Dictionary<int, RadComboBox> cmbList_param = new Dictionary<int, RadComboBox>() {
+                {Global.ProjectType,cmbType }, {Global.ProjectSite,cmbSite }
             };
-            if (paramTypeDict.ContainsKey(flag)) return paramBLL.getTextByTypeAndValue(code.ToString(), paramTypeDict[flag]);
-            else
+            foreach (int paramType in cmbList_param.Keys)
             {
-                if (flag == "priority" || flag == "severity")
-                {
-                    if (code.ToString() == "1") return "低";
-                    if (code.ToString() == "2") return "中";
-                    if (code.ToString() == "3") return "高";
-                }
+                Global.ComboBox_BindParamData(cmbList_param[paramType], paramType);
             }
-            return "";
         }
 
         protected void GridProject_ItemDataBound(object sender, GridItemEventArgs e)
@@ -165,7 +143,7 @@ namespace RepairMS.ManageSystem
                 string[] flagArr = { "priority", "projectType", "projectSite" };
                 foreach (string flag in flagArr)
                 {
-                    item[flag].Text = parseToText(item[flag].Text, flag);
+                    item[flag].Text = Global.CmbItem_parseToText(item[flag].Text, flag);
                 }
             }
         }
@@ -180,11 +158,45 @@ namespace RepairMS.ManageSystem
                 string[] flagArr = { "severity", "faultType", "faultStatus" };
                 foreach (string flag in flagArr)
                 {
-                    item[flag].Text = parseToText(item[flag].Text, flag);
+                    item[flag].Text = Global.CmbItem_parseToText(item[flag].Text, flag);
                 }
             }
 
         }
 
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            projectTable entity = new projectTable();
+            if (cmbStatus.SelectedIndex > 0) entity.projectStatus = Convert.ToInt32(cmbStatus.SelectedValue);
+            if (cmbType.SelectedIndex > 0) entity.projectType = Convert.ToInt32(cmbType.SelectedValue);
+            if (cmbSite.SelectedIndex > 0) entity.projectSite = Convert.ToInt32(cmbSite.SelectedValue);
+            if (cmbPriority.SelectedIndex > 0) entity.priority = Convert.ToInt32(cmbPriority.SelectedValue);
+            string startDate = "", endDate = "";
+            if (dateStart.SelectedDate.HasValue) startDate = dateStart.SelectedDate.Value.ToShortDateString();
+            if (dateEnd.SelectedDate.HasValue) endDate = dateEnd.SelectedDate.Value.ToShortDateString();
+            DataTable dt = projBLL.getDataTableByEntity(entity, startDate, endDate);
+
+            ViewState["GridProjData"] = dt;
+            GridProject.DataSource = dt;
+            GridProject.DataBind();
+
+            //Global.InputReset(div_search);
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            Global.InputReset(div_search);
+        }
+
+        protected void cmbProjStatus_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            RadComboBox cmb = sender as RadComboBox;
+
+            GridDataItem gridItem = (cmb.NamingContainer as GridDataItem);
+            int projId = Convert.ToInt32(gridItem.GetDataKeyValue("projectID").ToString());
+            int status = Convert.ToInt32(cmb.SelectedValue);
+            projBLL.updateRepairStatus(projId, status);
+            getProjectData();
+        }
     }
 }

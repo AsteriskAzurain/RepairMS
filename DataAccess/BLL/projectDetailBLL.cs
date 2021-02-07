@@ -31,12 +31,16 @@ namespace DataAccess.BLL
         public string getProjectRepairMan(int projID)
         {
             DataTable dt = getDetailDataTableByProjID(projID);
+            repairmanBLL rmBLL = new repairmanBLL();
             if (dt.Rows.Count == 0) return "";
-            else if (dt.Rows.Count == 1) return dt.Rows[0]["repairmanID"].ToString();
+            else if (dt.Rows.Count == 1)
+            {
+                repairmanTable rm = rmBLL.getRMinfoById(Convert.ToInt32(dt.Rows[0]["repairmanID"]));
+                return rm == null ? "" : rm.repairmanName;
+            }
             else
             {
                 List<string> rmList = dt.AsEnumerable().Select(row => row["repairmanID"].ToString()).ToList<string>();
-                repairmanBLL rmBLL = new repairmanBLL();
                 List<string> rmNameList = new List<string>();
                 foreach (string rmID in rmList)
                 {

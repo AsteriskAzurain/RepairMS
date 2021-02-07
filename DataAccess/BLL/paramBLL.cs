@@ -29,5 +29,10 @@ namespace DataAccess.BLL
             List<string> rstList = dt.AsEnumerable().Where(row => row["paramValue"].Equals(value)).Select(row => row["paramText"].ToString()).ToList<string>();
             return rstList.Count > 0 ? rstList[0].ToString() : "";
         }
+
+        public DataTable getParamListByType(int typeID)
+        {
+            return dal.GetParamListByType(typeID);
+        }
     }
 }

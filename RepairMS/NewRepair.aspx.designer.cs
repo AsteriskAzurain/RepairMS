@@ -40,6 +40,15 @@ namespace RepairMS {
         protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager1;
         
         /// <summary>
+        /// repairForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl repairForm;
+        
+        /// <summary>
         /// lblContactName control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace RepairMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnSubmit;
+        
+        /// <summary>
+        /// queryForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl queryForm;
         
         /// <summary>
         /// tbQueryID control.

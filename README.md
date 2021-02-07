@@ -50,7 +50,17 @@
   - [x] 添加报修人员 => 添加detail（Status=2）
     * [ ] 添加时，check人名
   - [x] 上下Grid，下Grid查询Detail，可添加
-  - [ ] Row末尾 btn结项，设置项目为已完成
+  - [x] Row末尾 btn结项，设置项目为已完成
+
+> TODO： 
+>
+> - [x] projectStatus selectChange事件(+confirm); 
+> - [ ] View * 2; 
+> - [x] GetAllRepairMan order by name asc; 
+> - [x] 添加proj查询
+> - [ ] proj Sort; 
+> - [ ] 完善param表;
+> - [ ] 重名check.
 
 ##### 3. 完成报修查询
 

@@ -21,5 +21,7 @@ namespace DataAccess.IDAL
         int SetEntityStatus(int id, int status);
 
         DataTable GetDataTableByStatus(int status);
+
+        DataTable GetDataTableByEntity(projectTable entity, string startDate, string endDate);
     }
 }

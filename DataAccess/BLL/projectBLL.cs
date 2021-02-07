@@ -55,5 +55,10 @@ namespace DataAccess.BLL
         {
             return dal.GetEntityDatatable();
         }
+
+        public DataTable getDataTableByEntity(projectTable entity, string startDate = "", string endDate = "")
+        {
+            return dal.GetDataTableByEntity(entity, startDate, endDate);
+        }
     }
 }

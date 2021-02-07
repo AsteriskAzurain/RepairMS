@@ -56,14 +56,14 @@ namespace DataAccess.SQLServerDAL
 
         public DataTable GetEntityDatatable()
         {
-            string sql = "select * from [repairmanTable] where deleteStatus=1 ";
+            string sql = "select * from [repairmanTable] where deleteStatus=1 order by repairmanName ";
             DataTable dt = SQLHelper.ExecuteDataTable(sql, null);
             return dt;
         }
 
         public DataTable GetEntityDatatableAll()
         {
-            string sql = "select * from [repairmanTable] ";
+            string sql = "select * from [repairmanTable] order by repairmanName ";
             DataTable dt = SQLHelper.ExecuteDataTable(sql, null);
             return dt;
         }

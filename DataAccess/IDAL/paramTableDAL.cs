@@ -19,5 +19,8 @@ namespace DataAccess.IDAL
         bool DeleteEntity(int Id);
 
         DataTable GetDataTabelByTypeId(int typeID);
+
+        DataTable GetParamListByType(int typeID);
+
     }
 }

@@ -91,5 +91,11 @@ namespace DataAccess.SQLServerDAL
             string sql = "select * from [paramTable] where deleteStatus=1 and paramType= " + typeID.ToString();
             return SQLHelper.ExecuteDataTable(sql, null);
         }
+
+        public DataTable GetParamListByType(int typeID)
+        {
+            string sql = "select * from [paramTable] where deleteStatus=1 and paramType=" + typeID.ToString() + " order by paramValue ";
+            return SQLHelper.ExecuteDataTable(sql, null);
+        }
     }
 }
