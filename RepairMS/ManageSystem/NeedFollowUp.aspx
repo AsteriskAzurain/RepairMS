@@ -147,8 +147,8 @@
                         <CommandItemSettings ShowRefreshButton="False"></CommandItemSettings>
                         <Columns>
                             <telerik:GridBoundColumn DataField="projectID" HeaderText="项目号" UniqueName="projectID" FilterControlAltText="Filter projectID column">
-                                <HeaderStyle HorizontalAlign="Center" Width="80px" Wrap="false"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="80px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Width="100px" Wrap="false"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="projectStatus" HeaderText="状态" UniqueName="projectStatus" FilterControlAltText="Filter projectStatus column" Display="False">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -180,6 +180,7 @@
                             <telerik:GridBoundColumn DataField="updateDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="更新时间" Display="False" UniqueName="updateDate" DataType="System.DateTime" FilterControlAltText="Filter updateDate column"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="deleteStatus" Display="False" UniqueName="deleteStatus" FilterControlAltText="Filter deleteStatus column"></telerik:GridBoundColumn>
                             <telerik:GridTemplateColumn DataField="projectStatus" UniqueName="cmbProjectStatus" FilterControlAltText="Filter cmbProjectStatus column" ItemStyle-Width="200px" HeaderStyle-Width="200px" HeaderText="状态">
+                                <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                 <ItemTemplate>
                                     <telerik:RadComboBox ID="cmbProjStatus" runat="server" Width="150px" SelectedValue='<%#Bind("projectStatus") %>' OnSelectedIndexChanged="cmbProjStatus_SelectedIndexChanged" AutoPostBack="True" OnClientSelectedIndexChanging="ClientSelectedIndexChanging">
@@ -192,7 +193,7 @@
                                     </telerik:RadComboBox>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn HeaderText="详情" UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
+                            <telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="false" Width="100px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                                 <ItemTemplate>
@@ -213,35 +214,39 @@
                         <CommandItemSettings AddNewRecordText="分配新维修员" ShowRefreshButton="False" />
                         <Columns>
                             <telerik:GridBoundColumn DataField="detailID" HeaderText="维修单号" UniqueName="detailID" FilterControlAltText="Filter detailID column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="projectID" Display="False" UniqueName="projectID" FilterControlAltText="Filter projectID column"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="repairmanID" HeaderText="维修人员" UniqueName="repairmanID" FilterControlAltText="Filter repairmanID column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="150px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="150px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="severity" HeaderText="损坏程度" UniqueName="severity" FilterControlAltText="Filter severity column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="150px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="150px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="faultType" HeaderText="故障类型" UniqueName="faultType" FilterControlAltText="Filter faultType column">
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
+                            </telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="faultStatus" HeaderText="故障状态" UniqueName="faultStatus" FilterControlAltText="Filter faultStatus column">
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
+                            </telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="add_requirement" HeaderText="额外需求" Display="False" UniqueName="add_requirement" FilterControlAltText="Filter add_requirement column"></telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="createDate" HeaderText="创建时间" Display="False" UniqueName="createDate" FilterControlAltText="Filter createDate column" DataFormatString="{0:yyyy/MM/dd}"></telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="updateDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="更新时间" UniqueName="updateDate" FilterControlAltText="Filter updateDate column">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="150px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="150px"></ItemStyle>
                             </telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="faultStatus" HeaderText="故障状态" UniqueName="faultStatus" FilterControlAltText="Filter faultStatus column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="170px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="170px"></ItemStyle>
+                            <telerik:GridBoundColumn DataField="deleteStatus" UniqueName="deleteStatus" FilterControlAltText="Filter deleteStatus column" Display="False">
                             </telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="faultDetail" HeaderText="详细描述" Display="False" UniqueName="faultDetail" FilterControlAltText="Filter faultDetail column"></telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="add_requirement" HeaderText="额外需求" Display="False" UniqueName="add_requirement" FilterControlAltText="Filter add_requirement column"></telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="createDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="创建时间" Display="False" UniqueName="createDate" FilterControlAltText="Filter createDate column"></telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="updateDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="更新时间" UniqueName="updateDate" FilterControlAltText="Filter updateDate column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="170px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="170px"></ItemStyle>
+                            <telerik:GridBoundColumn DataField="faultDetail" UniqueName="faultDetail" FilterControlAltText="Filter faultDetail column" HeaderText="详细描述">
+                                <HeaderStyle HorizontalAlign="Center" Width="300px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Left" Width="300px"></ItemStyle>
                             </telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="deleteStatus" Display="False" UniqueName="deleteStatus" FilterControlAltText="Filter deleteStatus column"></telerik:GridBoundColumn>
-                            <telerik:GridTemplateColumn HeaderText="详情" UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column" ItemStyle-Width="50px">
+                            <telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column" ItemStyle-Width="50px">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="false" Width="100px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                                 <ItemTemplate>

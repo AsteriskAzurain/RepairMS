@@ -106,6 +106,8 @@ namespace RepairMS.ManageSystem
                 if (cmb == null || cmb.SelectedIndex == 0) { RadAjaxManager1.Alert("请选择维修人员。"); e.Canceled = true; return; }
                 int rmID = Convert.ToInt32(cmb.SelectedItem.Value);
                 int projID = Convert.ToInt32(ViewState["SelectedProjID"]);
+                string projRMs = detailBLL.getProjectRepairMan(projID);
+                if (projRMs != "" && projRMs.IndexOf(cmb.SelectedItem.Text) > 0) { RadAjaxManager1.Alert("维修人员已在项目中。"); e.Canceled = true; return; }
                 int detailID = detailBLL.assignRepairMan(projID, rmID);
                 if (detailID > 0)
                 {
@@ -159,6 +161,12 @@ namespace RepairMS.ManageSystem
                 foreach (string flag in flagArr)
                 {
                     item[flag].Text = Global.CmbItem_parseToText(item[flag].Text, flag);
+                }
+                string faultDetail = item["faultDetail"].Text;
+                if (faultDetail != null && faultDetail.Length > 30)
+                {
+                    item["faultDetail"].Text = faultDetail.Substring(0, 30) + "...";
+                    item["faultDetail"].ToolTip = faultDetail;
                 }
             }
 
