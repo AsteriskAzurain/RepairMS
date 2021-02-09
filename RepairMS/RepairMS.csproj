@@ -137,6 +137,7 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="ManageSystem\AssignProject.aspx" />
     <Content Include="ManageSystem\Login.aspx" />
     <Content Include="ManageSystem\MyRepairProject.aspx" />
     <Content Include="ManageSystem\NeedFollowUp.aspx" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="ListView.aspx.designer.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\AssignProject.aspx.cs">
+      <DependentUpon>AssignProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\AssignProject.aspx.designer.cs">
+      <DependentUpon>AssignProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageSystem\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

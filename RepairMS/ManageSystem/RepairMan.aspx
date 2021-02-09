@@ -68,12 +68,12 @@
             <h1 style="text-align: center;">维修人员管理</h1>
             <div id="div_formRM">
                 <telerik:RadTextBox ID="tbName" runat="server" Width="350px" EmptyMessage="Name of the repairman"></telerik:RadTextBox>
-                <telerik:RadButton ID="btnAdd" runat="server" Text="添加" RenderMode="Lightweight" Primary="true" Width="100px" OnClick="btnAdd_Click" UseSubmitBehavior="false" ></telerik:RadButton>
+                <telerik:RadButton ID="btnAdd" runat="server" Text="添加" RenderMode="Lightweight" Primary="true" Width="100px" OnClick="btnAdd_Click" UseSubmitBehavior="false"></telerik:RadButton>
                 <telerik:RadButton ID="btnQuery" runat="server" Text="查找" RenderMode="Lightweight" Width="100px" OnClick="btnQuery_Click"></telerik:RadButton>
             </div>
             <div id="div_gridRM">
-                <telerik:RadGrid ID="GridRM" runat="server" AutoGenerateColumns="False" CellSpacing="-1" GridLines="Both" RenderMode="Lightweight"
-                    OnNeedDataSource="GridRM_NeedDataSource" OnItemDataBound="GridRM_ItemDataBound" OnItemCommand="GridRM_ItemCommand" BorderStyle="Solid" AllowPaging="True">
+                <telerik:RadGrid ID="GridRM" runat="server" AutoGenerateColumns="False" RenderMode="Lightweight"
+                    OnNeedDataSource="GridRM_NeedDataSource" OnItemDataBound="GridRM_ItemDataBound" OnItemCommand="GridRM_ItemCommand" AllowPaging="True">
                     <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
                     <ClientSettings>
                         <Selecting AllowRowSelect="True"></Selecting>

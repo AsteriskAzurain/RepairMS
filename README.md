@@ -30,17 +30,18 @@
 
 ##### 1. 待分配报修
 
-  - [ ] 条件查询
-      * ID、优先级、报修类型、报修地点、联系人姓名
-  - [ ] 查看/修改报修项目信息（顶部btn）
-  - [ ] Grid_Row 显示 已分配/未分配 | 分配人员
-  - [ ] cmb维修人员，分配维修人员 => 创建detail记录 => Status=1
-      -  未分配 → 分配+创建detail
-      -  已分配 → 更新+创建/更新detail
+  - [x] 条件查询
+      * ID、优先级、报修类型、报修地点、~~联系人姓名~~
+  - [ ] 查看/修改报修项目信息（~~顶部btn~~ <u>`View`</u>）
+  - [x] Grid_Row 显示 已分配/未分配 | 分配人员
+  - [x] cmb维修人员，分配维修人员 => 创建detail记录 => Status=1
+      - [x]  未分配 → 分配+创建detail
+      - 已分配 → 更新+创建/更新detail
+        -  允许多选？
       -  Grid设计：
          -  ❌下拉框
-         -  左右Grid 中间btn：Assign
-         -  维修人员Grid 添加textBox筛选
+         - [x]  左右Grid 中间btn：Assign
+         - [x]  维修人员Grid 添加textBox筛选
          -  此页面（Status=0）→ 更新detail
 
 ##### 2. 待跟进报修

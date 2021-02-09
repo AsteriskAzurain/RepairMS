@@ -102,7 +102,7 @@ namespace DataAccess.SQLServerDAL
 
         public DataTable GetDataTableByStatus(int status)
         {
-            string strSql = string.Format("select * from projectTable where deleteStatus=1 and projectStatus={0} order by priority desc,updateDate desc,createDate desc", status);
+            string strSql = string.Format("select * from projectTable where deleteStatus=1 and projectStatus={0} order by createDate desc,priority desc ", status);
             return SQLHelper.ExecuteDataTable(strSql, null);
         }
 

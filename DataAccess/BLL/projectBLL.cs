@@ -30,6 +30,11 @@ namespace DataAccess.BLL
             return dal.GetDataTableByStatus(0);
         }
 
+        public DataTable getHasAssignedProject()
+        {
+            return dal.GetDataTableByStatus(1);
+        }
+
         public DataTable getMyNeedFollowUpProject()
         {
             return dal.GetDataTableByStatus(2);
@@ -58,6 +63,8 @@ namespace DataAccess.BLL
 
         public DataTable getDataTableByEntity(projectTable entity, string startDate = "", string endDate = "")
         {
+            if (entity.projectID > 0 && (entity = getProjectInfoByID(entity.projectID)) != null)
+                return SQLHelper.ToDataTable(new projectTable[] { entity });
             return dal.GetDataTableByEntity(entity, startDate, endDate);
         }
     }

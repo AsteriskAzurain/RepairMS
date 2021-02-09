@@ -66,10 +66,10 @@ namespace DataAccess.SQLServerDAL
             var faultStatus_parameter = new SqlParameter("@faultStatus", entity.faultStatus);
             paramList.Add(faultStatus_parameter);
             SqlParameter faultDetail_parameter = new SqlParameter("@faultDetail", entity.faultDetail);
-            if (entity.faultDetail == null || entity.faultDetail == "") faultDetail_parameter.Value = DBNull.Value;
+            if (string.IsNullOrEmpty(entity.faultDetail)) faultDetail_parameter.Value = DBNull.Value;
             paramList.Add(faultDetail_parameter);
             SqlParameter add_requirement_parameter = new SqlParameter("@add_requirement", entity.add_requirement);
-            if (entity.add_requirement == null || entity.add_requirement == "") add_requirement_parameter.Value = DBNull.Value;
+            if (string.IsNullOrEmpty(entity.add_requirement)) add_requirement_parameter.Value = DBNull.Value;
             paramList.Add(add_requirement_parameter);
             string sql = "";
             SqlParameter identityParameter = new SqlParameter("@IdentityId", SqlDbType.Int);
@@ -86,17 +86,6 @@ namespace DataAccess.SQLServerDAL
                 sql = "update projectDetailTable set projectID = @projectID,repairmanID = @repairmanID,severity = @severity,faultType = @faultType,faultStatus = @faultStatus,faultDetail = @faultDetail,add_requirement = @add_requirement,updateDate = GETDATE() where detailID =@detailID ";
             }
             int count = SQLHelper.ExecuteonQuery(sql, paramList.ToArray());
-
-            //if (entity.detailID == -1)
-            //{
-            //    if (identityParameter != null)
-            //    {
-            //        entity.detailID = Convert.ToInt32(identityParameter.Value);
-            //        return entity.detailID;
-            //    }
-            //    else return -1;
-            //}
-            //else return count;
 
             return entity.detailID > 0 ? count : (identityParameter == null ? -1 : Convert.ToInt32(identityParameter.Value));
         }

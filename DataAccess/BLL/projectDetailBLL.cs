@@ -23,9 +23,14 @@ namespace DataAccess.BLL
             entity.faultStatus = 2;
             entity.severity = 0;
             entity.faultType = 0;
-            //entity.faultDetail = "";
-            //entity.add_requirement = "";
-            return dal.SaveEntity(entity);
+            if ((entity.detailID = dal.SaveEntity(entity)) > 1)
+            {
+                projectTableDAL projDal = new projectTableDAO();
+                projectTable projEntity = projDal.GetEntityById(entity.projectID.Value);
+                projEntity.hasDetail = 1;
+                entity.detailID = projDal.SaveEntity(projEntity) > 0 ? entity.detailID : -1;
+            }
+            return entity.detailID;
         }
 
         public string getProjectRepairMan(int projID)
@@ -47,7 +52,7 @@ namespace DataAccess.BLL
                     repairmanTable rm = rmBLL.getRMinfoById(Convert.ToInt32(rmID));
                     if (rm != null) rmNameList.Add(rm.repairmanName);
                 }
-                return string.Join(",", rmNameList);
+                return string.Join(", ", rmNameList);
             }
         }
 
