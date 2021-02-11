@@ -66,8 +66,6 @@ namespace RepairMS.ManageSystem
                 GridDataItem item = e.Item as GridDataItem;
                 int projID = Convert.ToInt32(item["projectID"].Text);
                 string rms = detailBLL.getProjectRepairMan(projID);
-                //item["repairman"].ForeColor = string.IsNullOrEmpty(rms) ? System.Drawing.Color.Red : System.Drawing.Color.Gray;
-                //item["repairman"].Text = string.IsNullOrEmpty(rms) ? "未分配" : rms;
                 if (!string.IsNullOrEmpty(rms)) { item.CssClass = " rgRow rowDisabled "; item["repairman"].Text = rms; }
                 else { item["repairman"].Text = "未分配"; item["repairman"].ForeColor = System.Drawing.Color.Red; }
 
@@ -81,6 +79,7 @@ namespace RepairMS.ManageSystem
                 {
                     item[column.UniqueName].ToolTip = item["projectDetail"].Text;
                 }
+                //(item["viewDetail"].FindControl("ViewProject") as HyperLink).NavigateUrl = Global.projectURL + "?projID=" + item["projectID"].Text;
             }
         }
 

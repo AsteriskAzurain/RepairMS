@@ -141,6 +141,8 @@
     <Content Include="ManageSystem\Login.aspx" />
     <Content Include="ManageSystem\MyRepairProject.aspx" />
     <Content Include="ManageSystem\NeedFollowUp.aspx" />
+    <Content Include="ManageSystem\ProjectDetailPage.aspx" />
+    <Content Include="ManageSystem\RepairDetailPage.aspx" />
     <Content Include="ManageSystem\RepairMan.aspx" />
     <Content Include="ManageSystem\RepairProject.aspx" />
     <Content Include="MasterPage.Master" />
@@ -226,6 +228,20 @@
     </Compile>
     <Compile Include="ManageSystem\NeedFollowUp.aspx.designer.cs">
       <DependentUpon>NeedFollowUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\ProjectDetailPage.aspx.cs">
+      <DependentUpon>ProjectDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\ProjectDetailPage.aspx.designer.cs">
+      <DependentUpon>ProjectDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSystem\RepairDetailPage.aspx.cs">
+      <DependentUpon>RepairDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSystem\RepairDetailPage.aspx.designer.cs">
+      <DependentUpon>RepairDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageSystem\RepairMan.aspx.cs">
       <DependentUpon>RepairMan.aspx</DependentUpon>

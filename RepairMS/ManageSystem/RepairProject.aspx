@@ -192,13 +192,17 @@
                                     </telerik:RadComboBox>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
+                            <telerik:GridHyperLinkColumn Text="View" UniqueName="viewDetail" AllowSorting="false" Target="_blank" DataNavigateUrlFields="projectID" DataNavigateUrlFormatString="./ProjectDetailPage.aspx?projID={0}">
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
+                            </telerik:GridHyperLinkColumn>
+                            <%--<telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="false" Width="100px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="HyperLink1" runat="server" Font-Underline="true">View</asp:HyperLink>
+                                    <asp:HyperLink ID="ViewProject" runat="server" Font-Underline="true" Target="_blank">View</asp:HyperLink>
                                 </ItemTemplate>
-                            </telerik:GridTemplateColumn>
+                            </telerik:GridTemplateColumn>--%>
                         </Columns>
                     </MasterTableView>
                 </telerik:RadGrid>
@@ -245,14 +249,17 @@
                                 <HeaderStyle HorizontalAlign="Center" Width="300px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Left" Width="300px"></ItemStyle>
                             </telerik:GridBoundColumn>
-                            <telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column" ItemStyle-Width="50px">
+                            <telerik:GridHyperLinkColumn Text="View" UniqueName="viewDetail" AllowSorting="false" Target="_blank" DataNavigateUrlFields="detailID" DataNavigateUrlFormatString="./RepairDetailPage.aspx?detailID={0}">
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
+                            </telerik:GridHyperLinkColumn>
+                            <%--<telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column" ItemStyle-Width="50px">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="false" Width="100px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="HyperLink1" runat="server" Font-Underline="true">View</asp:HyperLink>
+                                    <asp:HyperLink ID="ViewDetail" runat="server" Font-Underline="true" Target="_blank">View</asp:HyperLink>
                                 </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-
+                            </telerik:GridTemplateColumn>--%>
                         </Columns>
                         <EditFormSettings EditFormType="Template">
                             <FormTemplate>

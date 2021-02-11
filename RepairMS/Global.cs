@@ -23,6 +23,9 @@ namespace RepairMS
             }
         }
 
+        //public static readonly string projectURL = "./ProjectDetailPage.aspx";
+        //public static readonly string detailURL = "./RepairDetailPage.aspx";
+
         private static readonly int projectStatus;
         private static readonly int projectType;
         private static readonly int projectSite;
@@ -105,7 +108,7 @@ namespace RepairMS
             cb.DataSource = dataSource;
             cb.DataBind();
             if ((addedItemFlag & 1) == 1) cb.Items.Insert(0, new RadComboBoxItem("--ALL--", "-1"));
-            if ((addedItemFlag & 2) == 2) cb.Items.Insert(0, new RadComboBoxItem("请选择", "0"));
+            if ((addedItemFlag & 2) == 2) cb.Items.Insert(0, new RadComboBoxItem("请选择", "-1"));
             return;
         }
 
@@ -125,7 +128,7 @@ namespace RepairMS
             return "";
         }
 
-        public static void InputReset(HtmlGenericControl container,params Control[] exceptControls)
+        public static void InputReset(HtmlGenericControl container, params Control[] exceptControls)
         {
             foreach (Control ctrl in container.Controls)
             {
@@ -143,7 +146,7 @@ namespace RepairMS
                         break;
                     default:
                         System.Diagnostics.Debug.WriteLine(ctrl.GetType().Name);
-                        System.Diagnostics.Debug.WriteLine("ID: " + ctrl.ID+"; clientID: "+ ctrl.ClientID);
+                        System.Diagnostics.Debug.WriteLine("ID: " + ctrl.ID + "; clientID: " + ctrl.ClientID);
                         break;
                 }
             }

@@ -135,13 +135,17 @@
                                     <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="150px"></HeaderStyle>
                                     <ItemStyle HorizontalAlign="Center" Wrap="False" Width="150px"></ItemStyle>
                                 </telerik:GridBoundColumn>
-                                <telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
+                                <telerik:GridHyperLinkColumn Text="View" UniqueName="viewDetail" AllowSorting="false" Target="_blank" DataNavigateUrlFields="projectID" DataNavigateUrlFormatString="./ProjectDetailPage.aspx?projID={0}">
+                                    <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
+                                    <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
+                                </telerik:GridHyperLinkColumn>
+                                <%--<telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
                                     <HeaderStyle HorizontalAlign="Left" Wrap="false"></HeaderStyle>
                                     <ItemStyle HorizontalAlign="Left" Wrap="False"></ItemStyle>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" Font-Underline="true">View</asp:HyperLink>
+                                        <asp:HyperLink ID="ViewProject" runat="server" Font-Underline="true">View</asp:HyperLink>
                                     </ItemTemplate>
-                                </telerik:GridTemplateColumn>
+                                </telerik:GridTemplateColumn>--%>
                             </Columns>
                         </MasterTableView>
                         <HeaderStyle Font-Bold="True"></HeaderStyle>
