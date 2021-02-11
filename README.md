@@ -2,8 +2,8 @@
 
 - [x] 报修form（新增+查询）
 - [x] 登录页 多角色
-- [ ] 项目细节页
-- [ ] 维修细节页
+- [x] 项目细节页
+- [x] 维修细节页
 - [ ] Master
 - 管理
 
@@ -52,7 +52,7 @@
 > TODO： 
 >
 > - [x] projectStatus selectChange事件(+confirm); 
-> - [ ] View * 2; 
+> - [x] View * 2; 
 > - [x] GetAllRepairMan order by name asc; 
 > - [x] 添加proj查询
 > - [ ] proj Sort; 

@@ -23,14 +23,8 @@ namespace RepairMS
             }
         }
 
-        //public static readonly string projectURL = "./ProjectDetailPage.aspx";
-        //public static readonly string detailURL = "./RepairDetailPage.aspx";
-
-        private static readonly int projectStatus;
-        private static readonly int projectType;
-        private static readonly int projectSite;
-        private static readonly int faultType;
-        private static readonly int faultStatus;
+        public static readonly string projectURL = "./ProjectDetailPage.aspx";
+        public static readonly string detailURL = "./RepairDetailPage.aspx";
 
         public static int ProjectStatus
         {

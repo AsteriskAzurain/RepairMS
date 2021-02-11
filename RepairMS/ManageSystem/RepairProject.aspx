@@ -196,13 +196,6 @@
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                             </telerik:GridHyperLinkColumn>
-                            <%--<telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="false" Width="100px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
-                                <ItemTemplate>
-                                    <asp:HyperLink ID="ViewProject" runat="server" Font-Underline="true" Target="_blank">View</asp:HyperLink>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>--%>
                         </Columns>
                     </MasterTableView>
                 </telerik:RadGrid>
@@ -237,7 +230,10 @@
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
                             </telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="add_requirement" HeaderText="额外需求" Display="False" UniqueName="add_requirement" FilterControlAltText="Filter add_requirement column"></telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="add_requirement" HeaderText="附加需求" UniqueName="add_requirement" FilterControlAltText="Filter add_requirement column">
+                                <HeaderStyle HorizontalAlign="Center" Width="300px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Left" Width="300px"></ItemStyle>
+                            </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="createDate" HeaderText="创建时间" Display="False" UniqueName="createDate" FilterControlAltText="Filter createDate column" DataFormatString="{0:yyyy/MM/dd}"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="updateDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="更新时间" UniqueName="updateDate" FilterControlAltText="Filter updateDate column">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="150px"></HeaderStyle>
@@ -245,21 +241,11 @@
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="deleteStatus" UniqueName="deleteStatus" FilterControlAltText="Filter deleteStatus column" Display="False">
                             </telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="faultDetail" UniqueName="faultDetail" FilterControlAltText="Filter faultDetail column" HeaderText="详细描述">
-                                <HeaderStyle HorizontalAlign="Center" Width="300px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Left" Width="300px"></ItemStyle>
-                            </telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="faultDetail" UniqueName="faultDetail" Display="false" FilterControlAltText="Filter faultDetail column" HeaderText="详细描述"></telerik:GridBoundColumn>
                             <telerik:GridHyperLinkColumn Text="View" UniqueName="viewDetail" AllowSorting="false" Target="_blank" DataNavigateUrlFields="detailID" DataNavigateUrlFormatString="./RepairDetailPage.aspx?detailID={0}">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
                             </telerik:GridHyperLinkColumn>
-                            <%--<telerik:GridTemplateColumn UniqueName="viewDetail" FilterControlAltText="Filter TemplateColumn column" ItemStyle-Width="50px">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="false" Width="100px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
-                                <ItemTemplate>
-                                    <asp:HyperLink ID="ViewDetail" runat="server" Font-Underline="true" Target="_blank">View</asp:HyperLink>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>--%>
                         </Columns>
                         <EditFormSettings EditFormType="Template">
                             <FormTemplate>

@@ -48,7 +48,6 @@ namespace RepairMS.ManageSystem
                 {
                     item[flag].Text = Global.CmbItem_parseToText(item[flag].Text, flag);
                 }
-                //(item["viewDetail"].FindControl("ViewProject") as HyperLink).NavigateUrl = Global.projectURL + "?projID="+item["projectID"].Text;
             }
         }
 
@@ -99,7 +98,6 @@ namespace RepairMS.ManageSystem
                     item["faultDetail"].Text = faultDetail.Substring(0, 30) + "...";
                     item["faultDetail"].ToolTip = faultDetail;
                 }
-                //(item["viewDetail"].FindControl("ViewDetail") as HyperLink).NavigateUrl = Global.detailURL + "?detailID=" + item["detailID"].Text;
             }
         }
 

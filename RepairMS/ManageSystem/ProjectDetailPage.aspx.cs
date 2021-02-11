@@ -18,8 +18,6 @@ namespace RepairMS.ManageSystem
         public projectDetailBLL detailBLL = new projectDetailBLL();
         public repairmanBLL rmBLL = new repairmanBLL();
 
-        public string detailURL = Global.detailURL;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
