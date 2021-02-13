@@ -101,5 +101,18 @@ namespace DataAccess.SQLServerDAL
             string strSql = string.Format(" update projectDetailTable set faultStatus={1},updateDate=GETDATE() where detailID={0} ", id, status);
             return SQLHelper.ExecuteonQuery(strSql, null);
         }
+
+        public IList<projectDetailTable> getMyRepairProjectList(int rmID)
+        {
+            string strSQL = @"
+             select * from projectDetailTable 
+             where deleteStatus=1 and repairmanID=@repairmanID
+             and projectID in (select projectID from projectTable where deleteStatus=1 and projectStatus=1) 
+             order by createDate desc
+            ";
+            SqlParameter parameter = new SqlParameter("@repairmanID", rmID);
+            System.Data.SqlClient.SqlDataReader dr = SQLHelper.ExecuteReader(strSQL, parameter);
+            return SQLHelper.ReaderToList<projectDetailTable>(dr);
+        }
     }
 }

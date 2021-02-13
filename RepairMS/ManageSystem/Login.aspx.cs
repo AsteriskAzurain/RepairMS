@@ -44,7 +44,7 @@ namespace RepairMS.ManageSystem
                 Session["CurrentRole"] = rdoRole.SelectedValue;
                 Session["CurrentLoginUser"] = cuser;
                 RadAjaxManager1.Alert("登录成功");
-                Response.Redirect("../Default.aspx");
+                Response.Redirect("./MyRepairProject.aspx");
             }
             else
             {

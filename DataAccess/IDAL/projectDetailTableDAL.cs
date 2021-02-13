@@ -21,5 +21,7 @@ namespace DataAccess.IDAL
         DataTable GetAllDetailByProjID(int projID);
 
         int SetEntityStatus(int id, int status);
+
+        IList<projectDetailTable> getMyRepairProjectList(int rmID);
     }
 }

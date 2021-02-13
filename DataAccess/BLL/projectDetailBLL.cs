@@ -87,5 +87,10 @@ namespace DataAccess.BLL
             return dal.DeleteEntity(id);
         }
 
+        public IList<projectDetailTable> getMyRepairProjectIDList(int rmID)
+        {
+            return dal.getMyRepairProjectList(rmID);
+        }
+
     }
 }
