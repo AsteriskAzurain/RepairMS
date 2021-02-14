@@ -137,5 +137,7 @@
 15. 修改dao层 string的判空->string.IsNullOrEmpty(mystr);
 16. `已分配项目页` 选中rm, 允许更新proj's rm?
 17. detail表操作时，同步更新faultType;
-18. 待补充.
+18. detailLIst -> detailList
+19. 在`itemDataBound`方法中 给`GridHyperlinkColumn`赋值?
+20. 待补充.
 
