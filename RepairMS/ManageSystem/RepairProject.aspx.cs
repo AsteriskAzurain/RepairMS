@@ -25,11 +25,13 @@ namespace RepairMS.ManageSystem
             if (!IsPostBack)
             {
                 ViewState["projectStatus"] = 3;
+                if (Request.QueryString["Status"] != null) ViewState["projectStatus"] = Request.QueryString["Status"];
                 cmb_BindData();
                 getProjectData();
                 getDetailData(0);
             }
             pageTitle = ViewState["projectStatus"].ToString() == "3" ? "已完成" : "待跟进";
+            Page.Title = pageTitle + "项目查询 - SBS报修后台管理系统";
         }
 
         protected void GridProject_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)

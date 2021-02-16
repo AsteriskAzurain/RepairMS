@@ -107,7 +107,7 @@ namespace DataAccess.SQLServerDAL
             string strSQL = @"
              select * from projectDetailTable 
              where deleteStatus=1 and repairmanID=@repairmanID
-             and projectID in (select projectID from projectTable where deleteStatus=1 and projectStatus=1) 
+             and projectID in (select projectID from projectTable where deleteStatus=1 ) 
              order by createDate desc
             ";
             SqlParameter parameter = new SqlParameter("@repairmanID", rmID);
@@ -120,7 +120,7 @@ namespace DataAccess.SQLServerDAL
             string strSQL = @"
              select * from projectDetailTable 
              where deleteStatus=1 and repairmanID={0}
-             and projectID in (select projectID from projectTable where deleteStatus=1 and projectStatus=1 {1} ) 
+             and projectID in (select projectID from projectTable where deleteStatus=1 {1} ) 
             ";
             string tempSQL = "";
             // 将detail表的createDate字段放入project的updateDate字段中，方便传值

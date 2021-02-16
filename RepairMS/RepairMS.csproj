@@ -140,7 +140,6 @@
     <Content Include="ManageSystem\AssignProject.aspx" />
     <Content Include="ManageSystem\Login.aspx" />
     <Content Include="ManageSystem\MyRepairProject.aspx" />
-    <Content Include="ManageSystem\NeedFollowUp.aspx" />
     <Content Include="ManageSystem\ProjectDetailPage.aspx" />
     <Content Include="ManageSystem\RepairDetailPage.aspx" />
     <Content Include="ManageSystem\RepairMan.aspx" />
@@ -149,8 +148,6 @@
     <Content Include="MasterPageSingleMenu.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
-    <Content Include="Grid.aspx" />
     <Content Include="images\Chrysanthemum.jpg" />
     <Content Include="images\Desert.jpg" />
     <Content Include="images\Hydrangeas.jpg" />
@@ -168,7 +165,6 @@
     <Content Include="images\Thumbnails\Penguins.jpg" />
     <Content Include="images\Thumbnails\Tulips.jpg" />
     <Content Include="images\Tulips.jpg" />
-    <Content Include="ListView.aspx" />
     <Content Include="NewRepair.aspx" />
     <Content Include="scripts\scripts.js" />
     <Content Include="styles\base.css" />
@@ -177,30 +173,7 @@
     <Content Include="styles\listView.css" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="Grid.aspx.cs">
-      <DependentUpon>Grid.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Grid.aspx.designer.cs">
-      <DependentUpon>Grid.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Image.cs" />
-    <Compile Include="ListView.aspx.cs">
-      <DependentUpon>ListView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ListView.aspx.designer.cs">
-      <DependentUpon>ListView.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ManageSystem\AssignProject.aspx.cs">
       <DependentUpon>AssignProject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,13 +194,6 @@
     </Compile>
     <Compile Include="ManageSystem\MyRepairProject.aspx.designer.cs">
       <DependentUpon>MyRepairProject.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ManageSystem\NeedFollowUp.aspx.cs">
-      <DependentUpon>NeedFollowUp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManageSystem\NeedFollowUp.aspx.designer.cs">
-      <DependentUpon>NeedFollowUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageSystem\ProjectDetailPage.aspx.cs">
       <DependentUpon>ProjectDetailPage.aspx</DependentUpon>
