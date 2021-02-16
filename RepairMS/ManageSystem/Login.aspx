@@ -47,7 +47,7 @@
         <div class="container">
             <h2 class="span-col-2">登录</h2>
             <telerik:RadLabel ID="lblRole" runat="server" Text="登录身份："></telerik:RadLabel>
-            <telerik:RadRadioButtonList ID="rdoRole" runat="server" Direction="Horizontal" AutoPostBack="true">
+            <telerik:RadRadioButtonList ID="rdoRole" runat="server" Direction="Horizontal">
                 <Items>
                     <telerik:ButtonListItem Text="维修人员" Value="0" Selected="true" />
                     <telerik:ButtonListItem Text="管理人员" Value="1"  />
