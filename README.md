@@ -114,7 +114,7 @@
 
 5. ~~无权限时显示~~ (跳转至`Login`);
 
-6. 其他页权限判断（在`master`中完成?）;
+6. - [x] 其他页权限判断（在`master`中完成?）;
 
 7. - [x] `Login页` 登陆成功跳转;
 
@@ -133,8 +133,8 @@
     ```
 
 
-11. master（✔①设计, ②验证session. ）;
-12. web.config - login - 设置路径 ;
+11. - [x] master（✔①设计, ✔②验证session. ）;
+12. ~~web.config - login - 设置路径~~ 已在master中验证;
 13. 页面ajax;
 14. tooltip;
 15. `RepairDetailPage` 根据loginUser判断冻结的input;

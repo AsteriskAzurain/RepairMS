@@ -20,26 +20,16 @@ namespace RepairMS.ManageSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["CurrentRole"] == null || Session["CurrentRole"].ToString().Equals("1"))
-            {
-                RadAjaxManager1.Alert("此页面无权限访问。");
-                RadAjaxManager1.Redirect("./Login.aspx");
-                return;
-            }
+            if (Session["CurrentRole"] == null || Session["CurrentRole"].ToString().Equals("1")) return;
 
             repairmanTable currentUser = new repairmanTable();
-            if (Session["CurrentLoginUser"] != null)
+            if (Session["CurrentLoginUser"] == null) return;
+            else
             {
                 currentUser = Session["CurrentLoginUser"] as repairmanTable;
                 hiddenRMID.Value = currentUser.repairmanID.ToString();
                 if (ViewState["isQuery"] == null || ViewState["isQuery"].ToString() == "false")
                     getMyProjectData(currentUser.repairmanID);
-            }
-            else
-            {
-                RadAjaxManager1.Alert("无法访问登录信息，请尝试重新登录。");
-                RadAjaxManager1.Redirect("./Login.aspx");
-                return;
             }
             if (!IsPostBack)
             {
