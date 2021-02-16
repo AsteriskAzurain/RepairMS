@@ -122,8 +122,11 @@
 
 9. `rmManage页` 详情页? 修改信息? ;
 
-10. 其他页`cmbProjectStatus`重新绑定+添加css;
+10. - [x] 其他页`cmbProjectStatus`重新绑定+添加css;
 
+    1. AssignProject
+    2. RepairProject
+    
     ```css
     .xxcontainer .xxHovered { background-color: #F0F0F0; }
     .xxcontainer .xxDisabled:hover { cursor: no-drop; }

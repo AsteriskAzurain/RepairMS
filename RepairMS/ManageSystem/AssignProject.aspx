@@ -32,6 +32,10 @@
             color: black !important;
             background-color: lightgray !important;
         }
+
+        #cmbProjectStatus_DropDown li.rcbDisabled:hover {
+            cursor: no-drop;
+        }
     </style>
 </head>
 <body>
@@ -48,13 +52,13 @@
                 <div style="grid-column: span 3;">
                     <telerik:RadLabel ID="lblProjStatus" runat="server" Text="报修状态:" Width="80px"></telerik:RadLabel>
                     <telerik:RadComboBox ID="cmbProjectStatus" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cmbProjectStatus_SelectedIndexChanged">
-                        <Items>
+                        <%--<Items>
                             <telerik:RadComboBoxItem Text="请选择" Value="-1" />
                             <telerik:RadComboBoxItem Text="待分配" Value="0" />
                             <telerik:RadComboBoxItem Text="已分配" Value="1" />
                             <telerik:RadComboBoxItem Text="待跟进" Value="2" Enabled="false" />
                             <telerik:RadComboBoxItem Text="已完成" Value="3" Enabled="false" />
-                        </Items>
+                        </Items>--%>
                     </telerik:RadComboBox>
                 </div>
                 <div>

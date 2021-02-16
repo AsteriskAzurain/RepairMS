@@ -203,12 +203,14 @@ namespace RepairMS.ManageSystem
         {
             Global.ComboBox_BindLevelData(cmbPriority);
             Dictionary<int, RadComboBox> cmbList_param = new Dictionary<int, RadComboBox>() {
-                {Global.ProjectType,cmbType }, {Global.ProjectSite,cmbSite }
+                {Global.ProjectType,cmbType }, {Global.ProjectSite,cmbSite }, {Global.ProjectStatus,cmbStatus }
             };
             foreach (int paramType in cmbList_param.Keys)
             {
                 Global.ComboBox_BindParamData(cmbList_param[paramType], paramType);
             }
+            cmbStatus.Items[1].Enabled = false;
+            cmbStatus.Items[2].Enabled = false;
         }
 
         protected void cmbStatus_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)

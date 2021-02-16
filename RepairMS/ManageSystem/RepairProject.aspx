@@ -27,6 +27,10 @@
             #div_search .RadComboBox {
                 margin-right: 20px;
             }
+
+        li.rcbDisabled:hover {
+            cursor: no-drop;
+        }
     </style>
     <script type="text/javascript">
         function ClientSelectedIndexChanging(sender, args) {
@@ -103,13 +107,13 @@
                 <div class="row">
                     <telerik:RadLabel ID="lblStatus" runat="server" Text="状态：" Width="85px"></telerik:RadLabel>
                     <telerik:RadComboBox ID="cmbStatus" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cmbStatus_SelectedIndexChanged">
-                        <Items>
+                        <%--<Items>
                             <telerik:RadComboBoxItem Text="请选择" Value="-1" />
                             <telerik:RadComboBoxItem Text="待分配" Value="0" Enabled="false" />
                             <telerik:RadComboBoxItem Text="已分配" Value="1" Enabled="false" />
                             <telerik:RadComboBoxItem Text="待跟进" Value="2" />
                             <telerik:RadComboBoxItem Text="已完成" Value="3" />
-                        </Items>
+                        </Items>--%>
                     </telerik:RadComboBox>
                     <telerik:RadLabel ID="lblType" runat="server" Text="报修类型：" Width="85px"></telerik:RadLabel>
                     <telerik:RadComboBox ID="cmbType" runat="server"></telerik:RadComboBox>

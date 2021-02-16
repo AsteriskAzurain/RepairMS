@@ -99,12 +99,14 @@ namespace RepairMS.ManageSystem
         {
             Global.ComboBox_BindLevelData(cmbPriority);
             Dictionary<int, RadComboBox> cmbList_param = new Dictionary<int, RadComboBox>() {
-                {Global.ProjectType,cmbProjectType }, {Global.ProjectSite,cmbProjectSite }
+                {Global.ProjectType,cmbProjectType }, {Global.ProjectSite,cmbProjectSite }, { Global.ProjectStatus,cmbProjectStatus}
             };
             foreach (int paramType in cmbList_param.Keys)
             {
                 Global.ComboBox_BindParamData(cmbList_param[paramType], paramType);
             }
+            cmbProjectStatus.Items[3].Enabled = false;
+            cmbProjectStatus.Items[4].Enabled = false;
         }
 
         protected void btnQuery_Click(object sender, EventArgs e)
