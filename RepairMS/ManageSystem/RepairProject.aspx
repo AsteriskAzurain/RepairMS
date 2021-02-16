@@ -73,31 +73,64 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
         <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="cmbStatus">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="h1Title" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnQuery">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnClear">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="div_search"></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="cmbStatus">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="h1Title" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="cmbStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnQuery">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="cmbStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnClear">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="div_search" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="GridProject">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="GridDetail">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="GridProject">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="GridProject"></telerik:AjaxUpdatedControl>
                     <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="GridDetail">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="GridDetail"></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManager>
     <div style="width: 1200px; margin: auto;">
-        <h1 runat="server" style="text-align: center; margin-bottom: 30px;"><%=pageTitle %>项目</h1>
+        <h1 runat="server" id="h1Title" style="text-align: center; margin-bottom: 30px;"><%=pageTitle %>项目</h1>
         <div id="div_search" class="searchArea" runat="server">
             <div class="row">
                 <telerik:RadLabel ID="lblStatus" runat="server" Text="状态：" Width="85px"></telerik:RadLabel>

@@ -81,7 +81,6 @@ namespace RepairMS.ManageSystem
                 {
                     item[column.UniqueName].ToolTip = item["projectDetail"].Text;
                 }
-                //(item["viewDetail"].FindControl("ViewProject") as HyperLink).NavigateUrl = Global.projectURL + "?projID=" + item["projectID"].Text;
             }
         }
 

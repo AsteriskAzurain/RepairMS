@@ -2,11 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../styles/default.css" rel="stylesheet" />
-    <title><%=pageTitle %>项目查询 - SBS报修后台管理系统</title>
 
     <style>
         #div_main {
-            width:100%;
+            width: 100%;
             display: grid;
             grid-template-columns: 170px 80px 850px;
             align-items: center;
@@ -32,22 +31,45 @@
             background-color: lightgray !important;
         }
 
-        #cmbProjectStatus_DropDown li.rcbDisabled:hover {
+        li.rcbDisabled:hover {
             cursor: no-drop;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="cmbProjectStatus">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="h1Title" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="cmbProjectStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridRM" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProj"></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnQuery">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="h1Title" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProj"></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnAssign">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="GridRM" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="GridProj" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
     <div style="width: 1100px; margin: auto;">
-        <h1 style="text-align: center; margin-bottom: 30px;"><%=pageTitle %>项目</h1>
+        <h1 id="h1Title" runat="server" style="text-align: center; margin-bottom: 30px;"><%=pageTitle %>项目</h1>
         <div id="div_search">
             <div>
                 <telerik:RadLabel ID="lblProjID" runat="server" Text="报修单号：" Width="80px"></telerik:RadLabel>
                 <telerik:RadTextBox ID="tbProjID" runat="server"></telerik:RadTextBox>
             </div>
-            <div style="grid-column: span 3;">
+            <div style="grid-column: span 3; display: flex; align-items: center;">
                 <telerik:RadLabel ID="lblProjStatus" runat="server" Text="报修状态:" Width="80px"></telerik:RadLabel>
                 <telerik:RadComboBox ID="cmbProjectStatus" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cmbProjectStatus_SelectedIndexChanged"></telerik:RadComboBox>
             </div>

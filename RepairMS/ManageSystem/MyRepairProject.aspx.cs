@@ -173,6 +173,7 @@ namespace RepairMS.ManageSystem
             {
                 Global.ComboBox_BindParamData(cmbList_param[paramType], paramType);
             }
+            cmbProjectStatus.Items[1].Enabled = false;
         }
 
         protected void btnQuery_Click(object sender, EventArgs e)
@@ -185,8 +186,8 @@ namespace RepairMS.ManageSystem
             if (cmbProjectSite.SelectedIndex > 0) proj.projectSite = Convert.ToInt32(cmbProjectSite.SelectedValue);
             if (DateDetailCreate.SelectedDate.HasValue) proj.updateDate = DateDetailCreate.SelectedDate.Value;
             List<projectDetailTable> detailList = detailBLL.getMyRepairProjectIDList(rmID, proj).ToList();
-            ViewState["isQuery"] = "true";
-            showDetailList(detailList);
+            if (detailList.Count > 0) { ViewState["isQuery"] = "true"; showDetailList(detailList); }
+            else { RadAjaxManager1.Alert("没有查询到对应记录。"); ViewState["isQuery"] = "false"; }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

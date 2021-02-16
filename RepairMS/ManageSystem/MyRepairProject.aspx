@@ -1,4 +1,4 @@
-﻿<%@ Page Title="我的项目" Language="C#" MasterPageFile="../MasterPage.Master" AutoEventWireup="true" CodeBehind="MyRepairProject.aspx.cs" Inherits="RepairMS.ManageSystem.MyRepairProject" %>
+﻿<%@ Page Title="我的项目 - SBS报修后台管理系统" Language="C#" MasterPageFile="../MasterPage.Master" AutoEventWireup="true" CodeBehind="MyRepairProject.aspx.cs" Inherits="RepairMS.ManageSystem.MyRepairProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../styles/default.css" rel="stylesheet" />
@@ -69,7 +69,21 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="btnQuery">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="div_cards" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnClear">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="div_search" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    <telerik:AjaxUpdatedControl ControlID="div_cards" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
     <div>
         <h1 style="text-align: center;">我的项目</h1>
         <div id="div_search" class="searchArea" runat="server">

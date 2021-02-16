@@ -135,8 +135,8 @@
 
 11. - [x] master（✔①设计, ✔②验证session. ）;
 12. ~~web.config - login - 设置路径~~ 已在master中验证;
-13. 页面ajax;
-14. tooltip;
+13. - [x] 页面ajax;
+14. ~~tooltip~~;
 15. `RepairDetailPage` 根据loginUser判断冻结的input;
 16. ~~修改dao层 string的判空->string.IsNullOrEmpty(mystr)~~;
 17. ~~`已分配项目页` 选中rm, 允许更新proj's rm?~~

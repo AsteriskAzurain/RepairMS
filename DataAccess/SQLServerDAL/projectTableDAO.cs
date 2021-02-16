@@ -110,9 +110,9 @@ namespace DataAccess.SQLServerDAL
         {
             string strSQL = "select * from projectTable where deleteStatus=1 ";
             if (entity.projectStatus != null) strSQL += " and projectStatus= " + entity.projectStatus.ToString();
-            if (entity.projectType > 0) strSQL += " and projectType= " + entity.projectType.ToString();
-            if (entity.projectSite > 0) strSQL += " and projectSite= " + entity.projectSite.ToString();
-            if (entity.priority > 0) strSQL += " and priority= " + entity.priority.ToString();
+            if (entity.projectType != null) strSQL += " and projectType= " + entity.projectType.ToString();
+            if (entity.projectSite != null) strSQL += " and projectSite= " + entity.projectSite.ToString();
+            if (entity.priority != null) strSQL += " and priority= " + entity.priority.ToString();
             if (startDate != "") strSQL += string.Format(" and createDate >= '{0}' ", startDate);
             if (endDate != "") strSQL += string.Format(" and createDate <= '{0}' ", endDate);
             return SQLHelper.ExecuteDataTable(strSQL, null);
