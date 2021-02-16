@@ -34,6 +34,19 @@ namespace RepairMS.ManageSystem
                     btnEdit.Enabled = false;
                 }
             }
+            if (Session["CurrentRole"] != null)
+            {
+                if (Session["CurrentRole"].ToString() == "1") btnEdit.Visible = true;
+                else
+                {
+                    btnEdit.Visible = false;
+                    if (Session["CurrentLoginUser"] != null)
+                    {
+                        repairmanTable currentUser = Session["CurrentLoginUser"] as repairmanTable;
+                        btnEdit.Visible = currentUser.repairmanName.Equals(tbRepairmanID.Text.Trim());
+                    }
+                }
+            }
         }
 
         private void getRepairInfoByID(int detailID)

@@ -30,7 +30,7 @@
         <h2 runat="server" id="lblWarning" visible="false">未能加载正确的项目信息，请检查页面参数后重试。</h2>
         <div class="container">
             <div id="div_btnArea" class="span-col-2">
-                <telerik:RadButton ID="btnEdit" runat="server" Text="编辑" OnClick="btnEdit_Click" Width="150px"></telerik:RadButton>
+                <telerik:RadButton ID="btnEdit" runat="server" Text="编辑" OnClick="btnEdit_Click" Width="150px" Visible="false"></telerik:RadButton>
             </div>
 
             <div class="span-col-2">

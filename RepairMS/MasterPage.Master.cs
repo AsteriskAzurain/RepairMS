@@ -42,7 +42,7 @@ namespace RepairMS
             {
                 if (UserRole == 0) { currentRepairMan = Session["CurrentLoginUser"] as repairmanTable; UserName = currentRepairMan.repairmanName; }
                 else { currentEmployee = Session["CurrentLoginUser"] as employeeTable; UserName = currentEmployee.employeeName; }
-                lblWelcome.Text = string.Format("您好, <br /> {0}{1}.", (UserRole == 0 ? "维修员" : "管理员"), UserName);
+                lblWelcome.Text = string.Format("您好, <br /> {0} {1}.", (UserRole == 0 ? "维修员" : "管理员"), UserName);
             }
 
             string pagename = ContentPlaceHolder1.Page.GetType().ToString().ToLower();

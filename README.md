@@ -137,12 +137,13 @@
 12. ~~web.config - login - 设置路径~~ 已在master中验证;
 13. - [x] 页面ajax;
 14. ~~tooltip~~;
-15. `RepairDetailPage` 根据loginUser判断冻结的input;
+15. - [x] `RepairDetailPage` 根据loginUser判断冻结的input;
 16. ~~修改dao层 string的判空->string.IsNullOrEmpty(mystr)~~;
 17. ~~`已分配项目页` 选中rm, 允许更新proj's rm?~~
-18. detail表操作时，同步更新faultType;
+18. ~~detail表操作时，同步更新`faultStatus`~~ `faultStatus` 已与`ProjectStatus`合并;
 19. - [x] detailLIst -> detailList
 20. ~~在`itemDataBound`方法中 给`GridHyperlinkColumn`赋值?~~
 21. - [x] `rm待处理页`添加其他状态（待跟进、已完成）;
 22. 待补充.
+
 

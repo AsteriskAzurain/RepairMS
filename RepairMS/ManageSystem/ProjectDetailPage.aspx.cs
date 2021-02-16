@@ -35,9 +35,9 @@ namespace RepairMS.ManageSystem
                 {
                     lblWarning.Visible = true;
                     btnEdit.Enabled = false;
-                    //div_Griddetail.Visible = false;
                 }
             }
+            btnEdit.Visible = (Session["CurrentRole"] != null && Session["CurrentRole"].ToString() == "1");
         }
         private void getProjInfoByID(int projID)
         {
