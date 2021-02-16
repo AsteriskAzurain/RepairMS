@@ -114,5 +114,23 @@ namespace DataAccess.SQLServerDAL
             System.Data.SqlClient.SqlDataReader dr = SQLHelper.ExecuteReader(strSQL, parameter);
             return SQLHelper.ReaderToList<projectDetailTable>(dr);
         }
+
+        public IList<projectDetailTable> getMyProjectByQuery(int rmID, projectTable projInfo)
+        {
+            string strSQL = @"
+             select * from projectDetailTable 
+             where deleteStatus=1 and repairmanID={0}
+             and projectID in (select projectID from projectTable where deleteStatus=1 and projectStatus=1 {1} ) 
+            ";
+            string tempSQL = "";
+            // 将detail表的createDate字段放入project的updateDate字段中，方便传值
+            if (projInfo.updateDate > DateTime.MinValue) strSQL += string.Format(" and DateDiff(dd, createDate, '{0}') = 0 ", projInfo.updateDate.Value.ToShortDateString());
+            if (projInfo.projectID > 0) tempSQL += " and projectID= " + projInfo.projectID;
+            if (projInfo.projectType > 0) tempSQL += " and projectType= " + projInfo.projectType;
+            if (projInfo.projectSite > 0) tempSQL += " and projectSite= " + projInfo.projectSite;
+            strSQL = string.Format(strSQL, rmID, tempSQL);
+            System.Data.SqlClient.SqlDataReader dr = SQLHelper.ExecuteReader(strSQL, null);
+            return SQLHelper.ReaderToList<projectDetailTable>(dr);
+        }
     }
 }

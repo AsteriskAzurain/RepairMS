@@ -79,7 +79,7 @@
 
 ##### 1. 我的项目
 
-- [ ] 查找（Card）
+- [x] 查找（Card）
 - [x] btn详情
 - [x] btn填写维修详情
 - [x] 调整状态（待处理、待跟进、已完成）
@@ -104,21 +104,21 @@
 
 ##### 0214 TODO:
 
-1. `rm待处理页`标题;
+1. - [x] `rm待处理页`标题;
 
-2. 查找功能;
+2. - [x] 查找功能;
 
-3. 历史项目? ;
+3. ~~历史项目?~~ ;
 
-4. `projectStatus` 切成 `finished`时 无confirm? ;
+4. ~~`projectStatus` 切成 `finished`时 无confirm?~~ ;
 
-5. 无权限时显示;
+5. ~~无权限时显示~~ (跳转至`Login`);
 
 6. 其他页权限判断（在`master`中完成?）;
 
-7. `Login页` 登陆成功跳转;
+7. - [x] `Login页` 登陆成功跳转;
 
-8. `Login页` 记住密码? ;
+8. ~~`Login页` 记住密码?~~ ;
 
 9. `rmManage页` 详情页? 修改信息? ;
 
@@ -135,9 +135,9 @@
 13. tooltip;
 14. `RepairDetailPage` 根据loginUser判断冻结的input;
 15. 修改dao层 string的判空->string.IsNullOrEmpty(mystr);
-16. `已分配项目页` 选中rm, 允许更新proj's rm?
+16. ~~`已分配项目页` 选中rm, 允许更新proj's rm?~~
 17. detail表操作时，同步更新faultType;
-18. detailLIst -> detailList
-19. 在`itemDataBound`方法中 给`GridHyperlinkColumn`赋值?
+18. - [x] detailLIst -> detailList
+19. ~~在`itemDataBound`方法中 给`GridHyperlinkColumn`赋值?~~
 20. 待补充.
 

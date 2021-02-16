@@ -29,22 +29,25 @@ namespace RepairMS.ManageSystem
             if (password == "") { RadAjaxManager1.Alert("请填写密码。"); tbPswd.Focus(); return; }
             bool isLoginSuccrss = false;
             object cuser;
+            string redirectURL;
             if (rdoRole.SelectedValue == "1")
             {
                 cuser = eBLL.UserLogin(userName, password);
                 isLoginSuccrss = (cuser as employeeTable).employeeID > 0;
+                redirectURL = "./AssignProject.aspx";
             }
             else
             {
                 cuser = rmBLL.UserLogin(userName, password);
                 isLoginSuccrss = (cuser as repairmanTable).repairmanID > 0;
+                redirectURL = "./MyRepairProject.aspx";
             }
             if (isLoginSuccrss)
             {
                 Session["CurrentRole"] = rdoRole.SelectedValue;
                 Session["CurrentLoginUser"] = cuser;
                 RadAjaxManager1.Alert("登录成功");
-                Response.Redirect("./MyRepairProject.aspx");
+                RadAjaxManager1.Redirect(redirectURL);
             }
             else
             {
@@ -53,16 +56,5 @@ namespace RepairMS.ManageSystem
             }
         }
     }
-
-    /*
-     protected void RadRadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        RadRadioButtonList radioButtonList = sender as RadRadioButtonList;
-        string data = string.Format("selected index: {0}, selected value {1}, selected text: {2}",
-                                    radioButtonList.SelectedIndex, radioButtonList.SelectedValue, radioButtonList.SelectedItem.Text);
-        Label1.Text = data;
-    }
-     */
-
 
 }

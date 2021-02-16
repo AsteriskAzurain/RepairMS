@@ -87,9 +87,9 @@ namespace DataAccess.BLL
             return dal.DeleteEntity(id);
         }
 
-        public IList<projectDetailTable> getMyRepairProjectIDList(int rmID)
+        public IList<projectDetailTable> getMyRepairProjectIDList(int rmID, projectTable queryProj = null)
         {
-            return dal.getMyRepairProjectList(rmID);
+            return queryProj == null ? dal.getMyRepairProjectList(rmID) : dal.getMyProjectByQuery(rmID, queryProj);
         }
 
     }

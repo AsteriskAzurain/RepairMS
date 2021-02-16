@@ -20,29 +20,44 @@ namespace RepairMS.ManageSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["CurrentRole"] == null || Session["CurrentRole"].ToString().Equals("1")) { RadAjaxManager1.Alert("此页面无权限访问。"); return; }
+            if (Session["CurrentRole"] == null || Session["CurrentRole"].ToString().Equals("1"))
+            {
+                RadAjaxManager1.Alert("此页面无权限访问。");
+                RadAjaxManager1.Redirect("./Login.aspx");
+                return;
+            }
 
             repairmanTable currentUser = new repairmanTable();
             if (Session["CurrentLoginUser"] != null)
             {
                 currentUser = Session["CurrentLoginUser"] as repairmanTable;
-                getMyProjectData(currentUser.repairmanID);
+                hiddenRMID.Value = currentUser.repairmanID.ToString();
+                if (ViewState["isQuery"] == null || ViewState["isQuery"].ToString() == "false")
+                    getMyProjectData(currentUser.repairmanID);
             }
             else
             {
                 RadAjaxManager1.Alert("无法访问登录信息，请尝试重新登录。");
-                /* redirect to login page*/
+                RadAjaxManager1.Redirect("./Login.aspx");
                 return;
             }
             if (!IsPostBack)
             {
+                ViewState["isQuery"] = "false";
+                cmb_BindData();
             }
         }
 
         private void getMyProjectData(int rmID)
         {
-            List<projectDetailTable> detailLIst = detailBLL.getMyRepairProjectIDList(rmID).ToList();
-            foreach (projectDetailTable detail in detailLIst)
+            List<projectDetailTable> detailList = detailBLL.getMyRepairProjectIDList(rmID).ToList();
+            showDetailList(detailList);
+        }
+
+        private void showDetailList(List<projectDetailTable> detailList)
+        {
+            div_cards.Controls.Clear();
+            foreach (projectDetailTable detail in detailList)
             {
                 int detailID = detail.detailID;
                 int projectID = detail.projectID.Value;
@@ -159,5 +174,34 @@ namespace RepairMS.ManageSystem
             else RadAjaxManager1.Alert("状态更新失败。");
         }
 
+        private void cmb_BindData()
+        {
+            Dictionary<int, RadComboBox> cmbList_param = new Dictionary<int, RadComboBox>() {
+                {Global.ProjectType,cmbProjectType }, {Global.ProjectSite,cmbProjectSite }
+            };
+            foreach (int paramType in cmbList_param.Keys)
+            {
+                Global.ComboBox_BindParamData(cmbList_param[paramType], paramType);
+            }
+        }
+
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            projectTable proj = new projectTable();
+            int rmID = (string.IsNullOrEmpty(hiddenRMID.Value)) ? 0 : Convert.ToInt32(hiddenRMID.Value);
+            if (tbProjectID.Text != "") proj.projectID = Convert.ToInt32(tbProjectID.Text);
+            if (cmbProjectType.SelectedIndex > 0) proj.projectType = Convert.ToInt32(cmbProjectType.SelectedValue);
+            if (cmbProjectSite.SelectedIndex > 0) proj.projectSite = Convert.ToInt32(cmbProjectSite.SelectedValue);
+            if (DateDetailCreate.SelectedDate.HasValue) proj.updateDate = DateDetailCreate.SelectedDate.Value;
+            List<projectDetailTable> detailList = detailBLL.getMyRepairProjectIDList(rmID, proj).ToList();
+            ViewState["isQuery"] = "true";
+            showDetailList(detailList);
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            ViewState["isQuery"] = "false";
+            Global.InputReset(div_search);
+        }
     }
 }
