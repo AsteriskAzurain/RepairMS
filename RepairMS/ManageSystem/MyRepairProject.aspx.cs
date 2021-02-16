@@ -177,7 +177,7 @@ namespace RepairMS.ManageSystem
         private void cmb_BindData()
         {
             Dictionary<int, RadComboBox> cmbList_param = new Dictionary<int, RadComboBox>() {
-                {Global.ProjectType,cmbProjectType }, {Global.ProjectSite,cmbProjectSite }
+                { Global.ProjectStatus,cmbProjectStatus},  {Global.ProjectType,cmbProjectType }, {Global.ProjectSite,cmbProjectSite }
             };
             foreach (int paramType in cmbList_param.Keys)
             {
@@ -190,6 +190,7 @@ namespace RepairMS.ManageSystem
             projectTable proj = new projectTable();
             int rmID = (string.IsNullOrEmpty(hiddenRMID.Value)) ? 0 : Convert.ToInt32(hiddenRMID.Value);
             if (tbProjectID.Text != "") proj.projectID = Convert.ToInt32(tbProjectID.Text);
+            if (cmbProjectStatus.SelectedIndex > 0) proj.projectStatus = Convert.ToInt32(cmbProjectStatus.SelectedValue);
             if (cmbProjectType.SelectedIndex > 0) proj.projectType = Convert.ToInt32(cmbProjectType.SelectedValue);
             if (cmbProjectSite.SelectedIndex > 0) proj.projectSite = Convert.ToInt32(cmbProjectSite.SelectedValue);
             if (DateDetailCreate.SelectedDate.HasValue) proj.updateDate = DateDetailCreate.SelectedDate.Value;

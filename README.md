@@ -4,7 +4,7 @@
 - [x] 登录页 多角色
 - [x] 项目细节页
 - [x] 维修细节页
-- [ ] Master
+- [x] Master
 - 管理
 
   - [x] 待分配
@@ -16,7 +16,7 @@
 - 维修
 
   - [x] 待处理
-  - [ ] 已完成
+  - [x] 已完成
 
 ---
 
@@ -133,14 +133,16 @@
     ```
 
 
-11. master（①设计, ②验证session; ③设置路径. ）;
-12. 页面ajax;
-13. tooltip;
-14. `RepairDetailPage` 根据loginUser判断冻结的input;
-15. 修改dao层 string的判空->string.IsNullOrEmpty(mystr);
-16. ~~`已分配项目页` 选中rm, 允许更新proj's rm?~~
-17. detail表操作时，同步更新faultType;
-18. - [x] detailLIst -> detailList
-19. ~~在`itemDataBound`方法中 给`GridHyperlinkColumn`赋值?~~
-20. 待补充.
+11. master（✔①设计, ②验证session. ）;
+12. web.config - login - 设置路径 ;
+13. 页面ajax;
+14. tooltip;
+15. `RepairDetailPage` 根据loginUser判断冻结的input;
+16. ~~修改dao层 string的判空->string.IsNullOrEmpty(mystr)~~;
+17. ~~`已分配项目页` 选中rm, 允许更新proj's rm?~~
+18. detail表操作时，同步更新faultType;
+19. - [x] detailLIst -> detailList
+20. ~~在`itemDataBound`方法中 给`GridHyperlinkColumn`赋值?~~
+21. - [x] `rm待处理页`添加其他状态（待跟进、已完成）;
+22. 待补充.
 

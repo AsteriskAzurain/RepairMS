@@ -126,6 +126,7 @@ namespace DataAccess.SQLServerDAL
             // 将detail表的createDate字段放入project的updateDate字段中，方便传值
             if (projInfo.updateDate > DateTime.MinValue) strSQL += string.Format(" and DateDiff(dd, createDate, '{0}') = 0 ", projInfo.updateDate.Value.ToShortDateString());
             if (projInfo.projectID > 0) tempSQL += " and projectID= " + projInfo.projectID;
+            if (projInfo.projectStatus > 0) tempSQL += " and projectStatus=" + projInfo.projectStatus;
             if (projInfo.projectType > 0) tempSQL += " and projectType= " + projInfo.projectType;
             if (projInfo.projectSite > 0) tempSQL += " and projectSite= " + projInfo.projectSite;
             strSQL = string.Format(strSQL, rmID, tempSQL);

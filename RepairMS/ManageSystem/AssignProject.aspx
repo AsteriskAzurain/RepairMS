@@ -6,8 +6,9 @@
 
     <style>
         #div_main {
+            width:100%;
             display: grid;
-            grid-template-columns: 200px 100px 800px;
+            grid-template-columns: 170px 80px 850px;
             align-items: center;
             justify-items: center;
         }
@@ -66,7 +67,7 @@
         </div>
         <div id="div_main">
             <div id="div_GridRM">
-                <telerik:RadGrid ID="GridRM" runat="server" OnNeedDataSource="GridRM_NeedDataSource" AutoGenerateColumns="False" Width="200px" AllowPaging="True" Height="550px">
+                <telerik:RadGrid ID="GridRM" runat="server" OnNeedDataSource="GridRM_NeedDataSource" AutoGenerateColumns="False" Width="170px" AllowPaging="True" Height="550px">
                     <ClientSettings>
                         <Selecting AllowRowSelect="True"></Selecting>
                         <Scrolling AllowScroll="true" UseStaticHeaders="true" />
@@ -86,10 +87,10 @@
                 </telerik:RadGrid>
             </div>
             <div id="div_btn">
-                <telerik:RadButton ID="btnAssign" runat="server" Text=">>" OnClick="btnAssign_Click" Primary="True" Width="50px" ToolTip="分配"></telerik:RadButton>
+                <telerik:RadButton ID="btnAssign" runat="server" Text=">>" OnClick="btnAssign_Click" Primary="True" Width="40px" ToolTip="分配"></telerik:RadButton>
             </div>
             <div id="div_GridProj">
-                <telerik:RadGrid ID="GridProj" runat="server" OnNeedDataSource="GridProj_NeedDataSource" AutoGenerateColumns="False" AllowPaging="True" Height="550px" OnItemDataBound="GridProj_ItemDataBound">
+                <telerik:RadGrid ID="GridProj" runat="server" OnNeedDataSource="GridProj_NeedDataSource" AutoGenerateColumns="False" AllowPaging="True" Height="550px" Width="850px" OnItemDataBound="GridProj_ItemDataBound">
                     <ClientSettings>
                         <Selecting AllowRowSelect="True"></Selecting>
                         <Scrolling AllowScroll="true" UseStaticHeaders="true" />
@@ -97,21 +98,21 @@
                     <MasterTableView>
                         <Columns>
                             <telerik:GridBoundColumn UniqueName="projectID" FilterControlAltText="Filter column column" DataField="projectID" HeaderText="项目号">
-                                <HeaderStyle HorizontalAlign="Center" Width="100px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Width="100px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Width="105px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Width="105px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="projectStatus" Display="False" UniqueName="projectStatus" FilterControlAltText="Filter projectStatus column"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="priority" HeaderText="优先级" UniqueName="priority" FilterControlAltText="Filter priority column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="100px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="110px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="110px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="projectType" HeaderText="报修类型" UniqueName="projectType" FilterControlAltText="Filter projectType column">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
                                 <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="projectSite" HeaderText="报修地点" UniqueName="projectSite" FilterControlAltText="Filter projectSite column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="120px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="125px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="125px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="contactName" Display="False" UniqueName="contactName" FilterControlAltText="Filter contactName column"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="contactPhone" Display="False" UniqueName="contactPhone" FilterControlAltText="Filter contactPhone column"></telerik:GridBoundColumn>
@@ -125,8 +126,8 @@
                             <telerik:GridBoundColumn DataField="updateDate" DataFormatString="{0:yyyy/MM/dd}" Display="False" UniqueName="updateDate" FilterControlAltText="Filter updateDate column"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="deleteStatus" Display="False" UniqueName="deleteStatus" FilterControlAltText="Filter deleteStatus column"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn HeaderText="维修人员" UniqueName="repairman" FilterControlAltText="Filter repairman column">
-                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="150px"></HeaderStyle>
-                                <ItemStyle HorizontalAlign="Center" Wrap="False" Width="150px"></ItemStyle>
+                                <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="120px"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Center" Wrap="True" Width="120px"></ItemStyle>
                             </telerik:GridBoundColumn>
                             <telerik:GridHyperLinkColumn Text="View" UniqueName="viewDetail" AllowSorting="false" Target="_blank" DataNavigateUrlFields="projectID" DataNavigateUrlFormatString="./ProjectDetailPage.aspx?projID={0}">
                                 <HeaderStyle HorizontalAlign="Center" Wrap="False" Width="100px"></HeaderStyle>

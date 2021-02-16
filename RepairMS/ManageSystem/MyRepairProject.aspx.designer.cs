@@ -58,6 +58,24 @@ namespace RepairMS.ManageSystem {
         protected global::Telerik.Web.UI.RadTextBox tbProjectID;
         
         /// <summary>
+        /// lblProjStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblProjStatus;
+        
+        /// <summary>
+        /// cmbProjectStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox cmbProjectStatus;
+        
+        /// <summary>
         /// lblDetailCreateDate control.
         /// </summary>
         /// <remarks>
