@@ -5,6 +5,6 @@ C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\bin\Deb
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\obj\Debug\DataAccess.pdb
-C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

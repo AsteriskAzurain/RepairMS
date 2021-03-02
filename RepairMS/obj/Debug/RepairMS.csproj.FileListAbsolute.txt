@@ -1,6 +1,7 @@
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\RepairMS.dll.config
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\RepairMS.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\RepairMS.pdb
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\DataAccess.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Web.Design.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Web.Spreadsheet.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Web.UI.dll
@@ -10,9 +11,11 @@ C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Teler
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Documents.Spreadsheet.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Zip.dll
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EntityFramework.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EnvDTE.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Newtonsoft.Json.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\stdole.dll
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\DataAccess.pdb
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Web.Spreadsheet.xml
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Web.UI.xml
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Documents.Core.xml
@@ -20,11 +23,8 @@ C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Teler
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Documents.Spreadsheet.xml
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Zip.xml
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EntityFramework.xml
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.csprojResolveAssemblyReference.cache
+C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.dll.licenses
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.dll
 C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.pdb
-C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.dll.licenses
-C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\DataAccess.dll
-C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EntityFramework.dll
-C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\DataAccess.pdb
-C:\Users\AsteriskFang\OneDrive\文件中转\RepairMS\RepairMS\RepairMS\bin\EntityFramework.xml

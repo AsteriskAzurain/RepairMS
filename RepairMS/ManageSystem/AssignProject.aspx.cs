@@ -31,7 +31,7 @@ namespace RepairMS.ManageSystem
                 getProjData();
             }
             pageTitle = ViewState["projectStatus"].ToString() == "0" ? "待分配" : "已分配";
-            Page.Title = pageTitle + "项目查询 - SBS报修后台管理系统";
+            Page.Title = pageTitle + "项目查询 - 校园报修信息管理系统";
         }
 
         protected void GridRM_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)

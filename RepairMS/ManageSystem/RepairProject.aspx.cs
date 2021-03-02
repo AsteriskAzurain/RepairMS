@@ -31,7 +31,7 @@ namespace RepairMS.ManageSystem
                 getDetailData(0);
             }
             pageTitle = ViewState["projectStatus"].ToString() == "3" ? "已完成" : "待跟进";
-            Page.Title = pageTitle + "项目查询 - SBS报修后台管理系统";
+            Page.Title = pageTitle + "项目查询 - 校园报修信息管理系统";
         }
 
         protected void GridProject_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)

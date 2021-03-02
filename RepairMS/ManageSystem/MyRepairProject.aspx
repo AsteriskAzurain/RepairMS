@@ -1,4 +1,4 @@
-﻿<%@ Page Title="我的项目 - SBS报修后台管理系统" Language="C#" MasterPageFile="../MasterPage.Master" AutoEventWireup="true" CodeBehind="MyRepairProject.aspx.cs" Inherits="RepairMS.ManageSystem.MyRepairProject" %>
+﻿<%@ Page Title="我的项目 - 校园报修信息管理系统" Language="C#" MasterPageFile="../MasterPage.Master" AutoEventWireup="true" CodeBehind="MyRepairProject.aspx.cs" Inherits="RepairMS.ManageSystem.MyRepairProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../styles/default.css" rel="stylesheet" />

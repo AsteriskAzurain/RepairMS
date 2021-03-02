@@ -52,7 +52,7 @@ namespace RepairMS
                 Global.InputReset(repairForm);
                 //Global.InputReset(queryForm, tbQueryID);
                 tbQueryID.Text = entity.projectID.ToString();
-                fillQueryForm(entity.projectID);
+                fillQueryForm(entity.projectID.ToString());
             }
             else RadAjaxManager1.Alert("提交失败，请重试。");
 
@@ -61,20 +61,42 @@ namespace RepairMS
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             string queryID = tbQueryID.Text.Trim();
-            if (queryID == "") { RadAjaxManager1.Alert("请输入报修单号。"); tbQueryID.Focus(); return; }
-            fillQueryForm(Convert.ToInt32(queryID));
+            string queryName = tbQueryName.Text.Trim();
+            if (queryID + queryName == "") { RadAjaxManager1.Alert("请输入报修单号或报修者姓名。"); return; }
+            fillQueryForm(queryID, queryName);
         }
 
-        private void fillQueryForm(int queryID)
+        private void fillQueryForm(string strqueryID, string strQueryName = "")
         {
-            projectTable info = pBLL.getProjectInfoByID(queryID);
+            projectTable info = new projectTable();
+            int queryID = 0;
 
-            if (info != null)
+            if (!string.IsNullOrEmpty(strqueryID))
+            {
+                queryID = Convert.ToInt32(strqueryID);
+                info = pBLL.getProjectInfoByID(queryID);
+            }
+            else if (!string.IsNullOrEmpty(strQueryName))
+            {
+                info.contactName = strQueryName;
+                DataTable dt = pBLL.getDataTableByEntity(info);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    queryID = Convert.ToInt32(row["projectID"]);
+                    info.projectID = queryID;
+                    info.projectStatus = Convert.ToInt32(row["projectStatus"]);
+                    info.projectDetail = row["projectDetail"] == null ? "" : row["projectDetail"].ToString();
+                    info.updateDate = row["updateDate"] == null ? DateTime.MinValue : Convert.ToDateTime(row["updateDate"]);
+                }
+            }
+
+            if (queryID > 0)
             {
                 tbProjectStatus.Text = paramBLL.getProjectStatusByValue(info.projectStatus.Value);
                 tbRepairMan.Text = dBLL.getProjectRepairMan(queryID);
                 if (info.projectDetail != null && info.projectDetail != "") tbQueryDetail.Text = info.projectDetail;
-                if (info.updateDate != null) tbUpdateDate.Text = info.updateDate.Value.ToString("yyyy/MM/dd");
+                if (info.updateDate != null && info.updateDate > DateTime.MinValue) tbUpdateDate.Text = info.updateDate.Value.ToString("yyyy/MM/dd");
 
                 DataTable dt = dBLL.getDetailDataTableByProjID(queryID);
                 if (dt.Rows.Count > 0) tbFaultDetail.Text = dt.Rows[0]["faultDetail"].ToString();

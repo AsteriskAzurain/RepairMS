@@ -32,23 +32,47 @@
             grid-column: span 3;
         }
 
+        .span-row-2 {
+            grid-row: span 2;
+        }
+
         #queryForm {
             margin-left: 20px;
             /*grid-template-rows: 75px 36px auto;*/
             /*grid-template-columns: 200px 300px;*/
-            grid-template-rows: 75px repeat(3,40px) 100px 40px 100px;
+            grid-template-rows: 75px 70px 40px 40px 100px 40px 100px;
         }
 
         .text-right {
             text-align: right;
         }
+
+        #queryRepair {
+            font-size: small;
+            display: grid;
+            width: fit-content;
+            margin: auto;
+            grid-template-columns: 270px 70px;
+            grid-template-rows: 30px;
+            justify-items: left;
+        }
+
+        #titleArea {
+            width: 350px;
+            height: 80px;
+            padding-bottom: 20px;
+            margin: auto;
+        }
+
+            #titleArea h1 {
+                margin-bottom: 5px;
+            }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
         <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
-
             <AjaxSettings>
                 <telerik:AjaxSetting AjaxControlID="btnSubmit">
                     <UpdatedControls>
@@ -98,6 +122,10 @@
                 </telerik:AjaxSetting>
             </AjaxSettings>
         </telerik:RadAjaxManager>
+        <div id="titleArea">
+            <h1>校园报修信息管理系统</h1>
+            <span><a href="ManageSystem/Login.aspx" style="float: right;">后台登录</a></span>
+        </div>
         <div style="/*margin: auto; */ display: flex; justify-content: center;">
             <div id="repairForm" class="container" runat="server">
                 <h2 class="span-col-3">新增报修单</h2>
@@ -127,9 +155,12 @@
             </div>
             <div id="queryForm" class="container" runat="server">
                 <h2 class="span-col-2">查询报修情况</h2>
-                <div class="span-col-2" style="display: flex; width: fit-content; margin: auto;">
-                    <telerik:RadTextBox ID="tbQueryID" runat="server" Width="270px" EmptyMessage="请输入报修单号"></telerik:RadTextBox>
-                    <telerik:RadButton ID="btnQuery" runat="server" Text="查询" RenderMode="Lightweight" Primary="true" Width="80px" OnClick="btnQuery_Click"></telerik:RadButton>
+                <div class="span-col-2" id="queryRepair">
+                    <telerik:RadTextBox ID="tbQueryID" runat="server" EmptyMessage="输入查询的报修单号" Width="270px"></telerik:RadTextBox>
+                    <telerik:RadButton runat="server" ID="btnQuery" OnClick="btnQuery_Click" RenderMode="Lightweight" EnableEmbeddedSkins="false" Width="60px" Height="60px">
+                        <Icon PrimaryIconCssClass="rbSearch" />
+                    </telerik:RadButton>
+                    <telerik:RadTextBox ID="tbQueryName" runat="server" EmptyMessage="输入查询的报修者" Width="270px"></telerik:RadTextBox>
                 </div>
                 <telerik:RadLabel ID="lblProjectStatus" runat="server" Text="项目状态：" CssClass="text-right"></telerik:RadLabel>
                 <telerik:RadTextBox ID="tbProjectStatus" runat="server" Width="250px" Enabled="false"></telerik:RadTextBox>

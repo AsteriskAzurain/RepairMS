@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>登录 - SBS报修后台管理系统</title>
+    <title>登录 - 校园报修信息管理系统</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
@@ -29,6 +29,15 @@
         .my-20 {
             margin: 20px 0;
         }
+
+        #titleArea {
+            margin: 20px 0;
+        }
+
+            #titleArea h2 {
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
     </style>
 </head>
 <body>
@@ -45,21 +54,26 @@
             </AjaxSettings>
         </telerik:RadAjaxManager>
         <div class="container">
-            <h2 class="span-col-2">登录</h2>
+            <div id="titleArea" class="span-col-2">
+                <h2>校园报修信息管理系统</h2>
+                <h2>登录</h2>
+                <span style="float: right"><a href="../NewRepair.aspx">跳转填写报修单</a></span>
+            </div>
             <telerik:RadLabel ID="lblRole" runat="server" Text="登录身份："></telerik:RadLabel>
             <telerik:RadRadioButtonList ID="rdoRole" runat="server" Direction="Horizontal">
                 <Items>
                     <telerik:ButtonListItem Text="维修人员" Value="0" Selected="true" />
-                    <telerik:ButtonListItem Text="管理人员" Value="1"  />
+                    <telerik:ButtonListItem Text="管理人员" Value="1" />
                 </Items>
             </telerik:RadRadioButtonList>
             <telerik:RadLabel ID="lblName" runat="server" Text="登录名："></telerik:RadLabel>
             <telerik:RadTextBox ID="tbName" runat="server"></telerik:RadTextBox>
             <telerik:RadLabel ID="lblPswd" runat="server" Text="密码："></telerik:RadLabel>
-            <telerik:RadTextBox ID="tbPswd" runat="server" TextMode="Password" ></telerik:RadTextBox>
+            <telerik:RadTextBox ID="tbPswd" runat="server" TextMode="Password"></telerik:RadTextBox>
             <telerik:RadButton ID="btnForget" runat="server" Visible="false" Text="忘记密码？" BorderStyle="None" Font-Underline="true" ForeColor="#0000cc" CssClass="span-col-2"></telerik:RadButton>
             <telerik:RadButton ID="btnLogin" runat="server" Text="登录" OnClick="btnLogin_Click"
-                RenderMode="Lightweight" Primary="true" CssClass="span-col-2 my-20"></telerik:RadButton>
+                RenderMode="Lightweight" Primary="true" CssClass="span-col-2 my-20">
+            </telerik:RadButton>
 
         </div>
     </form>

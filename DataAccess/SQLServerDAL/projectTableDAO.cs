@@ -109,6 +109,7 @@ namespace DataAccess.SQLServerDAL
         public DataTable GetDataTableByEntity(projectTable entity, string startDate, string endDate)
         {
             string strSQL = "select * from projectTable where deleteStatus=1 ";
+            if (entity.contactName != null) strSQL += string.Format(" and contactName='{0}' ", entity.contactName.ToString());
             if (entity.projectStatus != null) strSQL += " and projectStatus= " + entity.projectStatus.ToString();
             if (entity.projectType != null) strSQL += " and projectType= " + entity.projectType.ToString();
             if (entity.projectSite != null) strSQL += " and projectSite= " + entity.projectSite.ToString();

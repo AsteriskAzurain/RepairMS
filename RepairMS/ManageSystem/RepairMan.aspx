@@ -1,4 +1,4 @@
-﻿<%@ Page Title="维修人员管理 - SBS报修后台管理系统" Language="C#" MasterPageFile="../MasterPage.Master" AutoEventWireup="true" CodeBehind="RepairMan.aspx.cs" Inherits="RepairMS.ManageSystem.RepairMan" %>
+﻿<%@ Page Title="维修人员管理 - 校园报修信息管理系统" Language="C#" MasterPageFile="../MasterPage.Master" AutoEventWireup="true" CodeBehind="RepairMan.aspx.cs" Inherits="RepairMS.ManageSystem.RepairMan" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../styles/default.css" rel="stylesheet" />
