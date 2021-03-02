@@ -137,6 +137,9 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="images\adminIcon.png" />
+    <Content Include="images\checked.jpeg" />
+    <Content Include="images\rmIcon.png" />
     <Content Include="ManageSystem\AssignProject.aspx" />
     <Content Include="ManageSystem\Login.aspx" />
     <Content Include="ManageSystem\MyRepairProject.aspx" />

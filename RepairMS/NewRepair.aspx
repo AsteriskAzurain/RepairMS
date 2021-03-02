@@ -58,14 +58,25 @@
         }
 
         #titleArea {
-            width: 350px;
-            height: 80px;
-            padding-bottom: 20px;
+            /*width: 400px;*/
+            /*height: 80px;*/
+            padding-bottom: 30px;
             margin: auto;
+            text-align: center;
         }
 
             #titleArea h1 {
                 margin-bottom: 5px;
+            }
+
+        .smbtnLogin {
+            font-size: 9px !important;
+            float: right;
+            right: 10%;
+        }
+
+            .smbtnLogin.RadLinkButton {
+                padding: 2px !important;
             }
     </style>
 </head>
@@ -123,8 +134,9 @@
             </AjaxSettings>
         </telerik:RadAjaxManager>
         <div id="titleArea">
+            <telerik:RadLinkButton ID="btnLogin" runat="server" Text="后台登录" NavigateUrl="~/ManageSystem/Login.aspx" Width="70px" Height="25px" CssClass="smbtnLogin"></telerik:RadLinkButton>
             <h1>校园报修信息管理系统</h1>
-            <span><a href="ManageSystem/Login.aspx" style="float: right;">后台登录</a></span>
+            <%--<span><a href="ManageSystem/Login.aspx" style="float: right;">后台登录</a></span>--%>
         </div>
         <div style="/*margin: auto; */ display: flex; justify-content: center;">
             <div id="repairForm" class="container" runat="server">
@@ -172,7 +184,6 @@
                 <telerik:RadTextBox ID="tbUpdateDate" runat="server" Width="250px" Enabled="false"></telerik:RadTextBox>
                 <telerik:RadLabel ID="lblFaultDetail" runat="server" Text="说明事项：" CssClass="text-right"></telerik:RadLabel>
                 <telerik:RadTextBox ID="tbFaultDetail" runat="server" Width="250px" Height="85px" Enabled="false"></telerik:RadTextBox>
-
             </div>
         </div>
     </form>
