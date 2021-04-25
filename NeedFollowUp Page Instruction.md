@@ -100,9 +100,8 @@
 
 6. 前端Line4
 
-   参考链接：
-
-   [RadGrid Event sequence]: https://docs.telerik.com/devtools/aspnet-ajax/controls/grid/control-lifecycle/event-sequence
+   参考链接：[RadGrid Event sequence](https://docs.telerik.com/devtools/aspnet-ajax/controls/grid/control-lifecycle/event-sequence)
+   
 
    > * 初次加载
    >   1. Page.Load
