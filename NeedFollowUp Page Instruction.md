@@ -48,7 +48,7 @@
 
        ajax在浏览器(user端)与后端之间使用异步数据传输，传统的浏览器与服务端交互的方式使用表单数据提交的方式，任何需要服务端对用户动作提供反馈的请求都需要重新刷新用户的界面，伤害用户的使用体验，使用ajax使用异步刷新对服务端进行请求，可以在不刷新(重载)页面的情况下，完成对页面局部数据的刷新。
 
-       [telerik官方文档：What is AJAX?]: https://docs.telerik.com/devtools/aspnet-ajax/controls/ajaxmanager/getting-started/what-is-ajax
+       参考链接：[telerik官方文档：What is AJAX?](https://docs.telerik.com/devtools/aspnet-ajax/controls/ajaxmanager/getting-started/what-is-ajax)
 
        >   传统方式的缺点：
        >
