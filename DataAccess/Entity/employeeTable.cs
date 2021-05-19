@@ -1,5 +1,6 @@
 namespace DataAccess.Entity
 {
+    using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,8 @@ namespace DataAccess.Entity
     public partial class employeeTable
     {
         [Key]
+        [BsonElement("_id")]
+        [BsonId]
         public int employeeID { get; set; }
 
         [StringLength(50)]
