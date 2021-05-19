@@ -42,7 +42,9 @@ namespace DataAccess.BLL
 
         public employeeTable testGetOne(int id)
         {
-            return dal.GetEntityById(id);
+            employeeTable e = dal.GetEntityById(id);
+            if (e != null) return e;
+            else return new employeeTable();
         }
 
         public bool testDeleteOne(int id)

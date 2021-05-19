@@ -35,8 +35,7 @@ namespace DataAccess.MongoDAL
             try
             {
                 var deleteResult = collection.DeleteOne(idFilter);
-                System.Diagnostics.Debug.WriteLine(deleteResult);
-                return true;
+                return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
             }
             catch (Exception)
             {
@@ -81,9 +80,8 @@ namespace DataAccess.MongoDAL
                     collection.InsertOneAsync(entity);
                     return 1;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    System.Diagnostics.Debug.WriteLine(e.StackTrace);
                     return 0;
                 }
             }
@@ -100,8 +98,7 @@ namespace DataAccess.MongoDAL
                             Builders<employeeTable>.Update.Set("employeeName", entity.employeeName)
                                                           .Set("password", entity.password)
                                                           .Set("deleteStatus", entity.deleteStatus));
-                        System.Diagnostics.Debug.WriteLine(updateResult);
-                        return 1;
+                        return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
                     }
                     catch (Exception)
                     {

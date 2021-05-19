@@ -42,12 +42,7 @@ namespace DataAccess
                     maxStage
                 });
             var result = collection.Aggregate(pipeline).ToList();
-            if (result.Count == 0) return 0;
-            else
-            {
-                var maxid = result[0].GetValue("maxId").AsInt32;
-                return maxid;
-            }
+            return result.Count > 0 ? result[0].GetValue("maxId").AsInt32 : 0;
         }
 
 
