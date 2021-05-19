@@ -1,0 +1,14 @@
+阿里云 CentOS7.2
+公网IP:121.41.24.118.
+
+登录名:root,密码:ISHANG.CS182;
+登录名:hangbingliu,密码:ishanglhb;
+登录名:bingweifang,密码:ishangfbw.
+
+SQL Server 2019
+登录名:sa,密码:ISHANG.CS182.
+
+MongoDB 3.6
+验证数据库:admin,
+用户名:admin,
+密码:323223.
