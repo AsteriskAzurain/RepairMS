@@ -7,17 +7,19 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.MongoDAL;
 
 namespace DataAccess.BLL
 {
     public class projectBLL
     {
-        public projectTableDAL dal = new projectTableDAO();
+        //public projectTableDAL dal = new projectTableDAO();
+        public projectTableDAL dal = new projectRepository();
 
         public int addNewRepairProject(projectTable entity)
         {
             entity.projectID = entity.projectID > 0 ? entity.projectID : -1;
-            return dal.SaveEntity(entity);
+            return dal.SaveEntity(entity) > 0 ? entity.projectID : 0;
         }
 
         public bool updateRepairStatus(int id, int status)
@@ -47,8 +49,7 @@ namespace DataAccess.BLL
 
         public bool updateProjectInfo(projectTable entity)
         {
-            if (entity.projectID > 0) return dal.SaveEntity(entity) > 0;
-            else return false;
+            return entity.projectID > 0 && dal.SaveEntity(entity) > 0;
         }
 
         public projectTable getProjectInfoByID(int id)

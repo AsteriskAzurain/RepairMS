@@ -1,4 +1,4 @@
-﻿using DataAccess.Entity;
+﻿         using DataAccess.Entity;
 using DataAccess.IDAL;
 using DataAccess.SQLServerDAL;
 using System;
@@ -7,12 +7,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.MongoDAL;
 
 namespace DataAccess.BLL
 {
     public class repairmanBLL
     {
-        public repairmanTableDAL dal = new repairmanTableDAO();
+        //public repairmanTableDAL dal = new repairmanTableDAO();
+        public repairmanTableDAL dal = new repairmanRepository();
+
         public repairmanTable UserLogin(string userName, string password)
         {
             if (userName != "" && password != "")

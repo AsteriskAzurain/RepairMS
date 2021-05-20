@@ -21,7 +21,7 @@ namespace DataAccess.MongoDAL
         public projectDetailRepository()
         {
             collection = MongoHelper.GetCollection<projectDetailTable>(collName);
-            defaultFilter = Builders<projectDetailTable>.Filter.Eq(pd => pd.deleteStatus, (byte)1);
+            defaultFilter = Builders<projectDetailTable>.Filter.Eq(pd => pd.deleteStatus, 1);
         }
 
         public bool DeleteEntity(int Id)
@@ -141,7 +141,7 @@ namespace DataAccess.MongoDAL
                                                        .Set("updateDate", DateTime.Now)
                     //.Set("deleteStatus", entity.deleteStatus)
                     );
-                return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
+                return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
             }
         }
 
@@ -149,7 +149,7 @@ namespace DataAccess.MongoDAL
         {
             var idFilter = Builders<projectDetailTable>.Filter.Eq(pd => pd.detailID, id);
             var updateResult = collection.UpdateOne(idFilter, Builders<projectDetailTable>.Update.Set("faultStatus", status).Set("updateDate", DateTime.Now));
-            return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
+            return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
         }
 
     }

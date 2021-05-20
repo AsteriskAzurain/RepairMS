@@ -24,6 +24,7 @@
 db.param_tmp.find().forEach(function (document) {
     var key = NumberInt(document.paramID)
     document._id = key
+    document.paramValue = document.paramValue + ""
     db.param.insert(document)
     db.param.update({ _id: key }, { $unset: { paramID: '' } })
 })
@@ -39,6 +40,7 @@ db.employee_tmp.find().forEach(function (document) {
 db.repairman_tmp.find().forEach(function (document) {
     var key = NumberInt(document.repairmanID)
     document._id = key
+    document.password = document.password + ""
     db.repairman.insert(document)
     db.repairman.update({ _id: key }, { $unset: { repairmanID: '' } })
 })
@@ -56,12 +58,11 @@ db.project_tmp.find().forEach(function (document) {
 db.projectDetail_tmp.find().forEach(function (document) {
     var key = NumberInt(document.detailID)
     document._id = key
-    var tmpDate = document.createDate
-    if (tmpDate != "NULL") document.createDate = new ISODate(tmpDate)
-    tmpDate = document.updateDate
-    if (tmpDate != "NULL") document.updateDate = new ISODate(tmpDate)
+    document.createDate = new ISODate(document.createDate)
+    if (document.updateDate != "NULL") document.updateDate = new ISODate(document.updateDate)
     db.projectDetail.insert(document)
     db.projectDetail.update({ _id: key }, { $unset: { detailID: '' } })
+    if (document.updateDate == "NULL") db.projectDetail.update({ _id: key }, { $unset: { updateDate: '' } })
 })
 
 // 在repairman表上建立text索引

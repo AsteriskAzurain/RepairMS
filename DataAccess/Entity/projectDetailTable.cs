@@ -36,6 +36,6 @@ namespace DataAccess.Entity
 
         public DateTime? updateDate { get; set; }
 
-        public byte deleteStatus { get; set; }
+        public int deleteStatus { get; set; }
     }
 }

@@ -30,7 +30,6 @@ namespace DataAccess.Entity
         [StringLength(255)]
         public string remark { get; set; }
 
-        [BsonSerializer(typeof(ByteSerializer))]
-        public byte deleteStatus { get; set; }
+        public int deleteStatus { get; set; }
     }
 }

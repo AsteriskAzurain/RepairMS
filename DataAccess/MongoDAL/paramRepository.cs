@@ -20,7 +20,7 @@ namespace DataAccess.MongoDAL
         public paramRepository()
         {
             collection = MongoHelper.GetCollection<paramTable>(collName);
-            defaultFilter = Builders<paramTable>.Filter.Eq(p => p.deleteStatus, (byte)1);
+            defaultFilter = Builders<paramTable>.Filter.Eq(p => p.deleteStatus, 1);
         }
 
         public bool DeleteEntity(int Id)
@@ -95,7 +95,7 @@ namespace DataAccess.MongoDAL
                                                .Set("paramType", entity.paramType)
                                                .Set("remark", entity.remark)
                     );
-                return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
+                return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
             }
         }
     }

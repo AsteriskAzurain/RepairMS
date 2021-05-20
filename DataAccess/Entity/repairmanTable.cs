@@ -23,7 +23,6 @@ namespace DataAccess.Entity
         [StringLength(50)]
         public string password { get; set; }
 
-        [BsonSerializer(typeof(ByteSerializer))]
-        public byte deleteStatus { get; set; }
+        public int deleteStatus { get; set; }
     }
 }

@@ -37,14 +37,12 @@ namespace DataAccess.Entity
         [StringLength(255)]
         public string siteDetail { get; set; }
 
-        [BsonSerializer(typeof(ByteSerializer))]
-        public byte hasDetail { get; set; }
+        public int hasDetail { get; set; }
 
         public DateTime? createDate { get; set; }
 
         public DateTime? updateDate { get; set; }
 
-        [BsonSerializer(typeof(ByteSerializer))]
-        public byte deleteStatus { get; set; }
+        public int deleteStatus { get; set; }
     }
 }

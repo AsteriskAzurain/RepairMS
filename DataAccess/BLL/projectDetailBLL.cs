@@ -7,12 +7,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.MongoDAL;
 
 namespace DataAccess.BLL
 {
     public class projectDetailBLL
     {
-        public projectDetailTableDAL dal = new projectDetailTableDAO();
+        //public projectDetailTableDAL dal = new projectDetailTableDAO();
+        public projectDetailTableDAL dal = new projectDetailRepository();
 
         public int assignRepairMan(int projID, int rmID)
         {
@@ -28,7 +30,7 @@ namespace DataAccess.BLL
                 projectTableDAL projDal = new projectTableDAO();
                 projectTable projEntity = projDal.GetEntityById(entity.projectID.Value);
                 projEntity.hasDetail = 1;
-                entity.detailID = projDal.SaveEntity(projEntity) > 0 ? entity.detailID : -1;
+                entity.detailID = projDal.SaveEntity(projEntity) > 0 ? entity.detailID : 0;
             }
             return entity.detailID;
         }

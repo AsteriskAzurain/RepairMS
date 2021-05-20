@@ -21,7 +21,7 @@ namespace DataAccess.MongoDAL
         public projectRepository()
         {
             collection = MongoHelper.GetCollection<projectTable>(collName);
-            defaultFilter = Builders<projectTable>.Filter.Eq(p => p.deleteStatus, (byte)1);
+            defaultFilter = Builders<projectTable>.Filter.Eq(p => p.deleteStatus, 1);
 
         }
 
@@ -108,9 +108,9 @@ namespace DataAccess.MongoDAL
                                                  .Set("hasDetail", entity.hasDetail)
                                                  //.Set("createDate", entity.createDate)
                                                  .Set("updateDate", DateTime.Now)
-                                                 //.Set("deleteStatus", entity.deleteStatus)
+                    //.Set("deleteStatus", entity.deleteStatus)
                     );
-                return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
+                return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
             }
         }
 
@@ -120,7 +120,7 @@ namespace DataAccess.MongoDAL
             {
                 var idFilter = Builders<projectTable>.Filter.Eq(p => p.projectID, id);
                 var updateResult = collection.UpdateOne(idFilter, Builders<projectTable>.Update.Set("projectStatus", status));
-                return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
+                return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
             }
             else return 0;
         }

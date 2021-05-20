@@ -20,7 +20,7 @@ namespace DataAccess.MongoDAL
         public repairmanRepository()
         {
             collection = MongoHelper.GetCollection<repairmanTable>(collName);
-            defaultFilter = Builders<repairmanTable>.Filter.Eq(rm => rm.deleteStatus, (byte)1);
+            defaultFilter = Builders<repairmanTable>.Filter.Eq(rm => rm.deleteStatus, 1);
         }
 
         public repairmanTable checkLoginInfo(repairmanTable loginUser)
@@ -104,7 +104,7 @@ namespace DataAccess.MongoDAL
             {
                 var idFilter = Builders<repairmanTable>.Filter.Eq(rm => rm.repairmanID, entity.repairmanID);
                 var updateResult = collection.UpdateOne(idFilter, Builders<repairmanTable>.Update.Set("repairmanName", entity.repairmanName).Set("password", entity.password));
-                return Convert.ToInt32(updateResult.IsAcknowledged && updateResult.ModifiedCount > 0);
+                return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
             }
         }
 
