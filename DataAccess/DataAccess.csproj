@@ -99,6 +99,10 @@
     <Compile Include="Entity\projectDetailTable.cs" />
     <Compile Include="Entity\projectTable.cs" />
     <Compile Include="MongoDAL\employeeRepository.cs" />
+    <Compile Include="MongoDAL\paramRepository.cs" />
+    <Compile Include="MongoDAL\projectDetailRepository.cs" />
+    <Compile Include="MongoDAL\projectRepository.cs" />
+    <Compile Include="MongoDAL\repairmanRepository.cs" />
     <Compile Include="MongoHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\repairmanTable.cs" />

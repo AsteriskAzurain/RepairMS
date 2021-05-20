@@ -86,7 +86,7 @@ namespace DataAccess.SQLServerDAL
             return count;
         }
 
-        public DataTable GetDataTabelByTypeId(int typeID)
+        public DataTable GetDataTableByTypeId(int typeID)
         {
             string sql = "select * from [paramTable] where deleteStatus=1 and paramType= " + typeID.ToString();
             return SQLHelper.ExecuteDataTable(sql, null);
