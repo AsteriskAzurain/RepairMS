@@ -69,17 +69,17 @@ namespace DataAccess.MongoDAL
         {
             BsonDocument nameBson = new BsonDocument();
             nameBson.Add("repairmanName", new BsonRegularExpression("^.*" + name + ".*$", "i"));
-            var nameFilter = Builders<repairmanTable>.Filter.Text(name);
-            var rmList = collection.Find(nameBson).ToList();
+            var nameFilter = Builders<repairmanTable>.Filter.Regex(rm => rm.repairmanName, new BsonRegularExpression("^.*" + name + ".*$", "i"));
+            var rmList = collection.Find(nameFilter).ToList();
             return SQLHelper.ToDataTable(rmList);
         }
 
         public bool isNameExist(string name, bool isAll)
         {
-            BsonDocument nameFilter = new BsonDocument();
-            nameFilter.Add("repairmanName", new BsonRegularExpression("^.*" + name + ".*$", "i"));
-            FilterDefinition<repairmanTable> queryFilter = nameFilter;
-            if (!isAll) queryFilter = defaultFilter & nameFilter;
+            TextSearchOptions option = new TextSearchOptions();
+            option.CaseSensitive = false;
+            FilterDefinition<repairmanTable> queryFilter = Builders<repairmanTable>.Filter.Text(name,option);
+            if (!isAll) queryFilter &= defaultFilter;
             var recordCount = collection.Find(queryFilter).Count();
             return recordCount > 0;
         }

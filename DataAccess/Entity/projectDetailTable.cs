@@ -1,5 +1,7 @@
 namespace DataAccess.Entity
 {
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -10,6 +12,8 @@ namespace DataAccess.Entity
     public partial class projectDetailTable
     {
         [Key]
+        [BsonElement("_id")]
+        [BsonId]
         public int detailID { get; set; }
 
         public int? projectID { get; set; }

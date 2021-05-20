@@ -1,5 +1,7 @@
 namespace DataAccess.Entity
 {
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -10,6 +12,8 @@ namespace DataAccess.Entity
     public partial class paramTable
     {
         [Key]
+        [BsonElement("_id")]
+        [BsonId]
         public int paramID { get; set; }
 
         [StringLength(50)]
@@ -26,6 +30,7 @@ namespace DataAccess.Entity
         [StringLength(255)]
         public string remark { get; set; }
 
-        public byte? deleteStatus { get; set; }
+        [BsonSerializer(typeof(ByteSerializer))]
+        public byte deleteStatus { get; set; }
     }
 }

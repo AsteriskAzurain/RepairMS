@@ -1,5 +1,7 @@
 namespace DataAccess.Entity
 {
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -10,6 +12,9 @@ namespace DataAccess.Entity
     public partial class repairmanTable
     {
         [Key]
+        [BsonElement("_id")]
+        [BsonId]
+        //[BsonRepresentation(BsonType.ObjectId)]
         public int repairmanID { get; set; }
 
         [StringLength(50)]
@@ -18,6 +23,7 @@ namespace DataAccess.Entity
         [StringLength(50)]
         public string password { get; set; }
 
-        public byte? deleteStatus { get; set; }
+        [BsonSerializer(typeof(ByteSerializer))]
+        public byte deleteStatus { get; set; }
     }
 }

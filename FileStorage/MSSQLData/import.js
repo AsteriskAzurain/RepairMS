@@ -22,37 +22,53 @@
 //-----------
 
 db.param_tmp.find().forEach(function (document) {
-    var key = document.paramID
+    var key = NumberInt(document.paramID)
     document._id = key
     db.param.insert(document)
     db.param.update({ _id: key }, { $unset: { paramID: '' } })
 })
 
 db.employee_tmp.find().forEach(function (document) {
-    var key = document.employeeID
+    var key = NumberInt(document.employeeID)
     document._id = key
+    document.password = document.password+""
     db.employee.insert(document)
     db.employee.update({ _id: key }, { $unset: { employeeID: '' } })
 })
 
 db.repairman_tmp.find().forEach(function (document) {
-    var key = document.repairmanID
+    var key = NumberInt(document.repairmanID)
     document._id = key
     db.repairman.insert(document)
     db.repairman.update({ _id: key }, { $unset: { repairmanID: '' } })
 })
 
 db.project_tmp.find().forEach(function (document) {
-    var key = document.projectID
+    var key = NumberInt(document.projectID)
     document._id = key
+    document.contactPhone = document.contactPhone + ""
+    document.createDate = new ISODate(document.createDate)
+    document.updateDate = new ISODate(document.updateDate)
     db.project.insert(document)
     db.project.update({ _id: key }, { $unset: { projectID: '' } })
 })
 
 db.projectDetail_tmp.find().forEach(function (document) {
-    var key = document.detailID
+    var key = NumberInt(document.detailID)
     document._id = key
+    var tmpDate = document.createDate
+    if (tmpDate != "NULL") document.createDate = new ISODate(tmpDate)
+    tmpDate = document.updateDate
+    if (tmpDate != "NULL") document.updateDate = new ISODate(tmpDate)
     db.projectDetail.insert(document)
     db.projectDetail.update({ _id: key }, { $unset: { detailID: '' } })
 })
 
+// 在repairman表上建立text索引
+db.repairman.createIndex({ repairmanName: "text" })
+// { 
+    // "createdCollectionAutomatically" : false, 
+    // "numIndexesBefore" : 1.0, 
+    // "numIndexesAfter" : 2.0, 
+    // "ok" : 1.0
+// }

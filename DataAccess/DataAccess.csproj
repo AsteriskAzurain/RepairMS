@@ -88,6 +88,7 @@
     <Compile Include="BLL\projectBLL.cs" />
     <Compile Include="BLL\projectDetailBLL.cs" />
     <Compile Include="BLL\repairmanBLL.cs" />
+    <Compile Include="ByteSerializer.cs" />
     <Compile Include="Entity\employeeTable.cs" />
     <Compile Include="IDAL\employeeTableDAL.cs" />
     <Compile Include="IDAL\paramTableDAL.cs" />

@@ -1,5 +1,6 @@
 namespace DataAccess.Entity
 {
+    using MongoDB.Bson;
     using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace DataAccess.Entity
         [StringLength(50)]
         public string password { get; set; }
 
-        public byte? deleteStatus { get; set; }
+        [BsonSerializer(typeof(ByteSerializer))]
+        public byte deleteStatus { get; set; }
     }
 }
