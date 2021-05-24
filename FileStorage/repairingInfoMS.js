@@ -68,3 +68,18 @@ db.projectDetail.insert([
     */
 	
 	//="{"&"detailID:"&A2&","&"projectID:"&B2&","&"repairmanID:"&C2&","&"severity:"&D2&","&"faultType:"&E2&","&"faultStatus:"&F2&","&"faultDetail:'"&G2&"',"&"add_requirement:"&H2&","&"createDate:ISODate('"&TEXT(I2,"yyyy-mm-ddThh:mm:ssZ")&"'),"&"updateDate:ISODate('"&TEXT(J2,"yyyy-mm-ddThh:mm:ssZ")&"'),"&"deleteStatus:"&K2&"}"
+	
+	
+db.getCollection("repairPhotos.files").update({},{$set:{"metadata.detailID":24}},{multi:true})
+
+)
+var metadata={
+        "detailID" :  NumberInt(24), 
+        "uploadUser" : {
+            "role" : NumberInt(1), 
+            "user" : NumberInt(1)
+        }, 
+        "deleteStatus" : NumberInt(1)
+    }
+printjson(metadata)
+db.getCollection("repairPhotos.files").update({},{$set:{"metadata":metadata}},{multi:true})

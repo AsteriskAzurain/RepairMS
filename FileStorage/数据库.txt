@@ -4,6 +4,7 @@
 登录名:root,密码:ISHANG.CS182;
 登录名:hangbingliu,密码:ishanglhb;
 登录名:bingweifang,密码:ishangfbw.
+登录名:xiaomingshao,密码:ishangsxm. 
 
 SQL Server 2019
 登录名:sa,密码:ISHANG.CS182.

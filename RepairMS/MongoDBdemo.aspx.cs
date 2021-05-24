@@ -17,7 +17,7 @@ namespace RepairMS
         {
             if (!IsPostBack)
             {
-                employeeTable Antonio = eBLL.testGetOne(1);
+                employeeTable Antonio = eBLL.getEEinfoById(1);
                 if (Antonio.employeeID == 0) testInsert();
             }
         }
@@ -47,7 +47,7 @@ namespace RepairMS
         private void testGetOne()
         {
             int eid = 12;
-            employeeTable einfo = eBLL.testGetOne(eid);
+            employeeTable einfo = eBLL.getEEinfoById(eid);
         }
 
         private void testInsert2()
@@ -62,14 +62,14 @@ namespace RepairMS
 
             System.Diagnostics.Debug.WriteLine("----update----");
             employeeTable eupd = new employeeTable();
-            eupd = eBLL.testGetOne(1);
+            eupd = eBLL.getEEinfoById(1);
             eupd.password = "123456";
             System.Diagnostics.Debug.WriteLine("Success? " + eBLL.testUpdateOne(eupd).ToString());
             System.Diagnostics.Debug.WriteLine(eupd.password);
 
             System.Diagnostics.Debug.WriteLine("----update id12----");
             employeeTable eupd12 = new employeeTable();
-            eupd12 = eBLL.testGetOne(12);
+            eupd12 = eBLL.getEEinfoById(12);
             eupd12.password = "123456";
             System.Diagnostics.Debug.WriteLine("Success? " + eBLL.testUpdateOne(eupd12).ToString());
             System.Diagnostics.Debug.WriteLine(eupd12.password);

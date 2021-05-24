@@ -40,7 +40,7 @@ namespace DataAccess.BLL
             return dt;
         }
 
-        public employeeTable testGetOne(int id)
+        public employeeTable getEEinfoById(int id)
         {
             employeeTable e = dal.GetEntityById(id);
             if (e != null) return e;

@@ -37,5 +37,7 @@ namespace DataAccess.Entity
         public DateTime? updateDate { get; set; }
 
         public int deleteStatus { get; set; }
-    }
+
+        public List<repairPhoto> photos { get; set; }
+}
 }

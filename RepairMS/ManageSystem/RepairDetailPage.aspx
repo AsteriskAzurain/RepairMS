@@ -29,12 +29,78 @@
         a.aspNetDisabled {
             cursor: no-drop;
         }
+
+        #dropZone {
+            width: 300px;
+            height: 100px;
+            border: dashed 1px black;
+            margin-right: 30px;
+            display: -webkit-box;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
-        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+            <AjaxSettings>
+                <telerik:AjaxSetting AjaxControlID="btnEdit">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="tbDetailID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbProjectID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="viewProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbRepairmanID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="dateCreate" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbFaultStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbFaultType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbSeverity" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbFaultDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbAddRequirement" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="GridPhoto" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="RadAsyncUpload1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="RadBinaryImage1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="div_editBtns" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="btnSubmit" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="btnCancel" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="btnEdit">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="div_editBtns" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbDetailID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbProjectID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="viewProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbRepairmanID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="dateCreate" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbFaultStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbFaultType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="cmbSeverity" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbFaultDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="tbAddRequirement" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="GridPhoto" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="RadAsyncUpload1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="RadBinaryImage1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="btnSubmit" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="btnCancel" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="GridPhoto">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="GridPhoto" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="RadAsyncUpload1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="RadBinaryImage1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="btnSubmit" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                        <telerik:AjaxUpdatedControl ControlID="btnCancel" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+            </AjaxSettings>
+        </telerik:RadAjaxManager>
         <h2 runat="server" id="lblWarning" visible="false">未能加载正确的项目信息，请检查页面参数后重试。</h2>
         <div class="container">
             <div id="div_btnArea" class="span-col-2">
@@ -76,6 +142,33 @@
             <div class="span-col-2">
                 <telerik:RadLabel ID="lblAddRequirement" runat="server" Text="附加需求：" Width="100px"></telerik:RadLabel>
                 <telerik:RadTextBox ID="tbAddRequirement" runat="server" TextMode="MultiLine" Width="600px" Height="100px"></telerik:RadTextBox>
+            </div>
+            <div class="span-col-2" style="display: flex;">
+                <telerik:RadLabel ID="lblUpload" runat="server" Text="上传图片：" Width="100px"></telerik:RadLabel>
+                <div style="width: 600px;">
+                    <telerik:RadGrid ID="GridPhoto" runat="server" Width="600px" AutoGenerateColumns="False" OnNeedDataSource="GridPhoto_NeedDataSource" OnItemCommand="GridPhoto_ItemCommand" OnItemDataBound="GridPhoto_ItemDataBound">
+                        <MasterTableView>
+                            <Columns>
+                                <telerik:GridBoundColumn DataField="picID" Display="False" UniqueName="picID" FilterControlAltText=""></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="detailID" Display="False" UniqueName="detailID" FilterControlAltText="" DataType="System.Int32"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="picName" UniqueName="picName" FilterControlAltText="" HeaderText="File Name"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="roleID" Display="false" UniqueName="roleID" FilterControlAltText="" DataType="System.Int32"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="userID" HeaderText="Uploader" UniqueName="userID" FilterControlAltText="" DataType="System.Int32"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="deleteStatus" Display="False" UniqueName="deleteStatus" FilterControlAltText="" DataType="System.Int32"></telerik:GridBoundColumn>
+                                <telerik:GridButtonColumn CommandName="ViewPhoto" Text="Preview" FilterControlAltText="Filter column2 column" UniqueName="View" ButtonType="PushButton"></telerik:GridButtonColumn>
+                                <telerik:GridButtonColumn CommandName="DownloadPhoto" Text="Download" FilterControlAltText="Filter column2 column" UniqueName="Download" ButtonType="PushButton"></telerik:GridButtonColumn>
+                                <telerik:GridButtonColumn CommandName="DeletePhoto" Text="Delete" FilterControlAltText="Filter column2 column" UniqueName="Delete" ButtonType="PushButton"></telerik:GridButtonColumn>
+                            </Columns>
+                        </MasterTableView>
+                    </telerik:RadGrid>
+                    <telerik:RadAsyncUpload ID="RadAsyncUpload1" runat="server" RenderMode="Lightweight" Width="600px" PostbackTriggers="btnSubmit" HideFileInput="True" MultipleFileSelection="Automatic" UploadedFilesRendering="BelowFileInput" DropZones="#dropZone" CssClass="mt-20" OnFileUploaded="RadAsyncUpload1_FileUploaded">
+                        <Localization Select="Click or Drop Here to Upload." />
+                        <FileFilters>
+                            <telerik:FileFilter Description="Images(jpeg;jpg;png)" Extensions="jpeg,jpg,png" />
+                        </FileFilters>
+                    </telerik:RadAsyncUpload>
+                    <telerik:RadBinaryImage ID="RadBinaryImage1" runat="server" CssClass="mt-20" ResizeMode="Fit" Height="200px" BorderStyle="None" AutoAdjustImageControlSize="False" />
+                </div>
             </div>
             <div id="div_editBtns" class="span-col-2" runat="server">
                 <telerik:RadButton ID="btnSubmit" runat="server" Text="完成" Primary="true" Width="100px" OnClick="btnSubmit_Click"></telerik:RadButton>

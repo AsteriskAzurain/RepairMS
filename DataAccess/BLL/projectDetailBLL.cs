@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.MongoDAL;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace DataAccess.BLL
 {
@@ -92,6 +94,21 @@ namespace DataAccess.BLL
         public IList<projectDetailTable> getMyRepairProjectIDList(int rmID, projectTable queryProj = null)
         {
             return queryProj == null ? dal.getMyRepairProjectList(rmID) : dal.getMyProjectByQuery(rmID, queryProj);
+        }
+
+        public byte[] getPhotoDataByPicID(string picID)
+        {
+            ObjectId picObjId = ObjectId.Parse(picID);
+            return MongoHelper.getPhotoDataByPicID("repairPhotos", picObjId);
+        }
+
+        public bool updatePhotoDelStatus(string picID)
+        {
+            ObjectId picObjId = ObjectId.Parse(picID);
+            //db.testColl.update({ _id: ObjectId("60ab13e73e72ff59ac5b5a6c") },
+            //    { $set: { "metadata.deleteStatus": NumberInt(1) } }
+            //)
+            return MongoHelper.updatePhotoDelStatus("repairPhotos", picObjId);
         }
 
     }

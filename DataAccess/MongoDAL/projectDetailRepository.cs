@@ -9,12 +9,14 @@ using DataAccess.IDAL;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Collections;
+using MongoDB.Driver.GridFS;
 
 namespace DataAccess.MongoDAL
 {
     class projectDetailRepository : projectDetailTableDAL
     {
         private string collName = "projectDetail";
+        private string photosBucketName = "repairPhotos";
         private IMongoCollection<projectDetailTable> collection;
         private FilterDefinition<projectDetailTable> defaultFilter;
 
@@ -51,6 +53,7 @@ namespace DataAccess.MongoDAL
         {
             var idFilter = Builders<projectDetailTable>.Filter.Eq(pd => pd.detailID, Id);
             var detail = collection.Find(idFilter).FirstOrDefault();
+            detail.photos = getPhotoListById(detail.detailID);
             return detail;
         }
 
@@ -119,6 +122,19 @@ namespace DataAccess.MongoDAL
                 try
                 {
                     collection.InsertOne(entity);
+                    GridFSUploadOptions options;
+                    foreach (repairPhoto pic in entity.photos)
+                    {
+                        options = new GridFSUploadOptions
+                        {
+                            Metadata = new BsonDocument {
+                            { "detailID", pic.detailID },
+                            { "uploadUser", new BsonDocument { { "role", pic.roleID }, { "user", pic.userID } } },
+                            { "deleteStatus", 1 }
+                        }
+                        };
+                        pic.picID = MongoHelper.StorePicture(photosBucketName, pic.picName, pic.picData, options);
+                    }
                     return 1;
                 }
                 catch (Exception)
@@ -141,7 +157,24 @@ namespace DataAccess.MongoDAL
                                                        .Set("updateDate", DateTime.Now)
                     //.Set("deleteStatus", entity.deleteStatus)
                     );
-                return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
+                if (!updateResult.IsAcknowledged || updateResult.ModifiedCount == 0) return 0;
+                else
+                {
+                    GridFSUploadOptions options;
+                    foreach (repairPhoto pic in entity.photos)
+                    {
+                        options = new GridFSUploadOptions
+                        {
+                            Metadata = new BsonDocument {
+                            { "detailID", pic.detailID },
+                            { "uploadUser", new BsonDocument { { "role", pic.roleID }, { "user", pic.userID } } },
+                            { "deleteStatus", 1 }
+                        }
+                        };
+                        pic.picID = MongoHelper.StorePicture(photosBucketName, pic.picName, pic.picData, options);
+                    }
+                    return 1;
+                }
             }
         }
 
@@ -152,5 +185,47 @@ namespace DataAccess.MongoDAL
             return updateResult.IsAcknowledged ? Convert.ToInt32(updateResult.ModifiedCount) : 0;
         }
 
+        public void AddPhotoListforDataList(ref List<projectDetailTable> dsList)
+        {
+            foreach (var item in dsList)
+            {
+                item.photos = getPhotoListById(item.detailID);
+            }
+        }
+
+        public List<repairPhoto> getPhotoListById(int detailID)
+        {
+            List<repairPhoto> resultList = new List<repairPhoto>();
+            var bucket = MongoHelper.getGridFSBucket(photosBucketName);
+            var filter = Builders<GridFSFileInfo>.Filter.And(
+                Builders<GridFSFileInfo>.Filter.Eq(x => x.Metadata["deleteStatus"], 1),
+                Builders<GridFSFileInfo>.Filter.Eq(x => x.Metadata["detailID"], detailID));
+            //var filter1 = Builders<GridFSFileInfo>.Filter.ElemMatch("metadata",
+            //    Builders<BsonDocument>.Filter.And(Builders<BsonDocument>.Filter.Eq("deleteStatus", 1),
+            //                                      Builders<BsonDocument>.Filter.Eq("detailID", detailID)));
+            var sort = Builders<GridFSFileInfo>.Sort.Descending(x => x.UploadDateTime);
+            var options = new GridFSFindOptions
+            {
+                //Limit = 1,
+                Sort = sort
+            };
+            List<GridFSFileInfo> findResult = bucket.Find(filter, options).ToList();
+            foreach (var fileInfo in findResult)
+            {
+                if (fileInfo != null)
+                {
+                    BsonDocument metaData = fileInfo.Metadata;
+                    repairPhoto pic = new repairPhoto();
+                    pic.picID = fileInfo.Id;
+                    pic.picName = fileInfo.Filename;
+                    pic.detailID = metaData.GetValue("detailID").AsInt32;
+                    BsonDocument uploadUser = metaData.GetValue("uploadUser").AsBsonDocument;
+                    pic.roleID = uploadUser.GetValue("role").AsInt32;
+                    pic.userID = uploadUser.GetValue("user").AsInt32;
+                    resultList.Add(pic);
+                }
+            }
+            return resultList;
+        }
     }
 }
