@@ -68,3 +68,5 @@ D:\git\repository\RepairMS\RepairMS\RepairMS\bin\Telerik.Windows.Zip.xml
 D:\git\repository\RepairMS\RepairMS\RepairMS\bin\EntityFramework.xml
 D:\git\repository\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.csprojResolveAssemblyReference.cache
 D:\git\repository\RepairMS\RepairMS\RepairMS\obj\Debug\RepairMS.dll.licenses
+D:\git\repository\RepairMS\RepairMS\RepairMS\bin\MongoDB.Driver.GridFS.dll
+D:\git\repository\RepairMS\RepairMS\RepairMS\bin\MongoDB.Driver.GridFS.xml

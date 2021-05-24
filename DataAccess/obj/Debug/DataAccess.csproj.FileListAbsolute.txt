@@ -28,3 +28,5 @@ D:\git\repository\RepairMS\RepairMS\DataAccess\bin\Debug\EntityFramework.SqlServ
 D:\git\repository\RepairMS\RepairMS\DataAccess\bin\Debug\MongoDB.Bson.xml
 D:\git\repository\RepairMS\RepairMS\DataAccess\bin\Debug\MongoDB.Driver.xml
 D:\git\repository\RepairMS\RepairMS\DataAccess\bin\Debug\MongoDB.Driver.Core.xml
+D:\git\repository\RepairMS\RepairMS\DataAccess\bin\Debug\MongoDB.Driver.GridFS.dll
+D:\git\repository\RepairMS\RepairMS\DataAccess\bin\Debug\MongoDB.Driver.GridFS.xml
