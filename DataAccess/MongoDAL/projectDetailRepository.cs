@@ -123,22 +123,27 @@ namespace DataAccess.MongoDAL
                 {
                     collection.InsertOne(entity);
                     GridFSUploadOptions options;
-                    foreach (repairPhoto pic in entity.photos)
+                    if (entity.photos != null)
                     {
-                        options = new GridFSUploadOptions
+                        foreach (repairPhoto pic in entity.photos)
                         {
-                            Metadata = new BsonDocument {
+                            options = new GridFSUploadOptions
+                            {
+                                Metadata = new BsonDocument {
                             { "detailID", pic.detailID },
                             { "uploadUser", new BsonDocument { { "role", pic.roleID }, { "user", pic.userID } } },
                             { "deleteStatus", 1 }
                         }
-                        };
-                        pic.picID = MongoHelper.StorePicture(photosBucketName, pic.picName, pic.picData, options);
+                            };
+                            pic.picID = MongoHelper.StorePicture(photosBucketName, pic.picName, pic.picData, options);
+                        }
                     }
-                    return 1;
+                    return entity.detailID;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                    System.Diagnostics.Debug.WriteLine(e.StackTrace);
                     return 0;
                 }
             }

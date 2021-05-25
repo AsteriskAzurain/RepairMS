@@ -48,59 +48,7 @@
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
-        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
-            <AjaxSettings>
-                <telerik:AjaxSetting AjaxControlID="btnEdit">
-                    <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="tbDetailID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbProjectID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="viewProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbRepairmanID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="dateCreate" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="cmbFaultStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="cmbFaultType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="cmbSeverity" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbFaultDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbAddRequirement" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="GridPhoto" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="RadAsyncUpload1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="RadBinaryImage1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="div_editBtns" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="btnSubmit" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="btnCancel" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    </UpdatedControls>
-                </telerik:AjaxSetting>
-                <telerik:AjaxSetting AjaxControlID="btnEdit">
-                    <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="div_editBtns" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbDetailID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbProjectID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="viewProject" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbRepairmanID" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="dateCreate" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="cmbFaultStatus" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="cmbFaultType" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="cmbSeverity" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbFaultDetail" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="tbAddRequirement" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="GridPhoto" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="RadAsyncUpload1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="RadBinaryImage1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="btnSubmit" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="btnCancel" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    </UpdatedControls>
-                </telerik:AjaxSetting>
-                <telerik:AjaxSetting AjaxControlID="GridPhoto">
-                    <UpdatedControls>
-                        <telerik:AjaxUpdatedControl ControlID="GridPhoto" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="RadAsyncUpload1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="RadBinaryImage1" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="btnSubmit" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                        <telerik:AjaxUpdatedControl ControlID="btnCancel" UpdatePanelCssClass=""></telerik:AjaxUpdatedControl>
-                    </UpdatedControls>
-                </telerik:AjaxSetting>
-            </AjaxSettings>
-        </telerik:RadAjaxManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
         <h2 runat="server" id="lblWarning" visible="false">未能加载正确的项目信息，请检查页面参数后重试。</h2>
         <div class="container">
             <div id="div_btnArea" class="span-col-2">

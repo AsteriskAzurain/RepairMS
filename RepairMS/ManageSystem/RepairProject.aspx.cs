@@ -138,7 +138,8 @@ namespace RepairMS.ManageSystem
                     dt.Rows.Add(newRow);
                     dt.AcceptChanges();
                     ViewState["GridDetailData"] = dt;
-
+                    GridDetail.Rebind();
+                    RadAjaxManager1.Alert("添加成功。");
                 }
                 else e.Canceled = true;
             }

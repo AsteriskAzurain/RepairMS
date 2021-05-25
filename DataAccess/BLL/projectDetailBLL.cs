@@ -29,7 +29,8 @@ namespace DataAccess.BLL
             entity.faultType = 0;
             if ((entity.detailID = dal.SaveEntity(entity)) > 1)
             {
-                projectTableDAL projDal = new projectTableDAO();
+                //projectTableDAL projDal = new projectTableDAO();
+                projectTableDAL projDal = new projectRepository();
                 projectTable projEntity = projDal.GetEntityById(entity.projectID.Value);
                 projEntity.hasDetail = 1;
                 entity.detailID = projDal.SaveEntity(projEntity) > 0 ? entity.detailID : 0;
