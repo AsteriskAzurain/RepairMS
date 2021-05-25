@@ -13,7 +13,7 @@ namespace DataAccess
 {
     public static class MongoHelper
     {
-        private static readonly string connStr = System.Web.Configuration.WebConfigurationManager.AppSettings["CONN_MongoDB"];
+        private static readonly string connStr = System.Web.Configuration.WebConfigurationManager.AppSettings["CONN_MongoDB_replica"];
         private static IMongoDatabase db;
 
 
